@@ -19,25 +19,25 @@ public class Task11_Fibonacci {
         System.out.print("Fibonacci dizisi için bir sayı giriniz: ");
         int sayi = input.nextInt();
         //1.yol
-        int fibonacci = 1;
-        int toplam = 0, temp;
+      // int fibonacci = 1;
+      // int toplam = 0, temp;
 
-        while (sayi >= fibonacci) {
+      // while (sayi >= fibonacci) {
 
-            toplam += fibonacci;
+      //     toplam += fibonacci;
 
-            temp = fibonacci;
-            fibonacci = toplam;
-            toplam = temp;
-            numbers.add(toplam);
+      //     temp = fibonacci;
+      //     fibonacci = toplam;
+      //     toplam = temp;
+      //     numbers.add(toplam);
 
-        }
-        System.out.println("numbers = " + numbers);
+      // }
+      // System.out.println("numbers = " + numbers);
 
         //2.yol
         List<Integer> numbers2 = new ArrayList<Integer>();
-        int i = 1;
-        while (sayi >= fibonacciMethod(i)) {
+        int i = 0;
+        while (sayi >= i) {
             numbers2.add(fibonacciMethod(i));
             i++;
         }
@@ -48,6 +48,7 @@ public class Task11_Fibonacci {
 
         System.out.println("numbers2 = " + numbers2);
     }
+
 
     private static int fibonacciMethod(int sayi) {
 
