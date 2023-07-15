@@ -26,7 +26,19 @@ Kisi class;(Serap Hoca)
 
     void islemlerMenu();(Zeynep)
         switch-case;
-        ============= İŞLEMLER =============
+        case 1:
+        IslemMethodlari.ekle();-call
+        islemlerMenu();
+        case 2:
+        IslemMethodlari.ara();-call
+        islemlerMenu();
+
+        *
+        *
+        *
+
+
+        ============= İŞLEMLER Methodları =============
         		 1-EKLEME(Zeynep)
         		    isim gir;
         		    kimlikNo gir;
@@ -36,28 +48,28 @@ Kisi class;(Serap Hoca)
         		        ogrencilist.add;
         		    else if(Ogretmen) sicilNo gir;, Bolum gir;
         		        ogretmenlist.add;
-                 islemlerMenu();
+
 
         		 2-ARAMA(Serap)
         		    kimlikNo gir;
         		    foreach(Kisilist);if- else
                         sout(Kisilist.get)
-                 islemlerMenu();
+
 
         		 3-LİSTELEME(Mustafa)
         		       sout(ogrencilist);
                        sout(ogretmenlist);
-                 islemlerMenu();
+
 
         		 4-SİLME (Serap)
         		       kimlikNo gir;
         		        foreach(Kisilist);if- else
         		            Kisilist.remove ;
-        		 islemlerMenu();
+
 
         		 5-ANA MENÜ (Zeynep)
         		        anamenu();-call
-        		 islemlerMenu();
+
 
         		 Q-ÇIKIŞ (Zeynep)
         		        void cikis();
