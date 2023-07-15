@@ -1,8 +1,8 @@
-Ogrenci class;(Mustafa)
+Ogrenci class;(Serap Hoca)
 
     ogrencilist;
 
-Ogretmen class;(Zeynep Hoca)
+Ogretmen class;(Serap Hoca)
 
     ogretmenlist;
 
@@ -24,7 +24,7 @@ Kisi class;(Serap Hoca)
         	 cikis();-call
 
 
-    void islemlerMenu();
+    void islemlerMenu();(Zeynep)
         switch-case;
         ============= İŞLEMLER =============
         		 1-EKLEME(Zeynep)
