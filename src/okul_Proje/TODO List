@@ -49,7 +49,6 @@ Kisi class;(Serap Hoca)
         		    else if(Ogretmen) sicilNo gir;, Bolum gir;
         		        ogretmenlist.add;
 
-
         		 2-ARAMA(Serap)
         		    kimlikNo gir;
         		    foreach(Kisilist);if- else
