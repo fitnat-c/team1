@@ -10,7 +10,7 @@ public class Islemler {
 
     static Scanner input = new Scanner(System.in);
 
-    static String kisiTuru = input.next();
+    static String kisiTuru ;
 
 
     void anaMenu() {
