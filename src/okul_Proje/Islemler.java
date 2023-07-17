@@ -10,9 +10,7 @@ public class Islemler {
 
     static Scanner input = new Scanner(System.in);
 
-    static String kisiTuru= input.next();
-
-    static Scanner input = new Scanner(System.in);
+    static String kisiTuru = input.next();
 
 
     void anaMenu() {
@@ -23,22 +21,13 @@ public class Islemler {
         char anaMenuTercih = input.next().toUpperCase().charAt(0);
         switch (anaMenuTercih) {
             case '1':
-
-                kisiTuru= "ÖĞRENCİ";
+                kisiTuru = "ÖĞRENCİ";
                 islemlerMenu();
                 break;
             case '2':
                 kisiTuru = "ÖĞRETMEN";
-
-                //kisituru="ogrenci"
                 islemlerMenu();
                 break;
-            case '2':
-                //kisituru="ogretmen"
-
-                islemlerMenu();
-                break;
-
             case 'Q':
                 //cikis();
                 break;
@@ -51,27 +40,27 @@ public class Islemler {
 
     void islemlerMenu() {
 
-        System.out.println("***** "+kisiTuru + " İŞLEMLERİ MENÜSÜNE HOŞ GELDİNİZ *****\nEKLEME işlemleri için 1\n"+
-                        "ARAMA işlemleri için 2\nLİSTELEME işlemleri için 3\nSİLME işlemleri için 4\nANA MENÜ'ye dönmek için 5\n" +
+        System.out.println("***** " + kisiTuru + " İŞLEMLERİ MENÜSÜNE HOŞ GELDİNİZ *****\nEKLEME işlemleri için 1\n" +
+                "ARAMA işlemleri için 2\nLİSTELEME işlemleri için 3\nSİLME işlemleri için 4\nANA MENÜ'ye dönmek için 5\n" +
                 "ÇIKIŞ için Q seçiniz = ");
 
         char islemlerMenuSecim = input.next().charAt(0);
 
         switch (islemlerMenuSecim) {
             case '1':
-              //  ekleme();
+                //  ekleme();
                 islemlerMenu();
                 break;
             case '2':
-              //  arama();
+                //  arama();
                 islemlerMenu();
                 break;
             case '3':
-               // listele();
+                // listele();
                 islemlerMenu();
                 break;
             case '4':
-               // silme();
+                // silme();
                 islemlerMenu();
                 break;
             case '5':
