@@ -3,7 +3,7 @@ package okul_Proje;
 import java.util.Scanner;
 
 public class Islemler {
-    Scanner input = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
 
     void anaMenu() {
         System.out.println("====================================" +
