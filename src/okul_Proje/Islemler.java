@@ -3,12 +3,10 @@ package okul_Proje;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static okul_Proje.IslemMethodlari.*;
+
 public class Islemler {
 
-    static ArrayList<Kisi> ogretmenList = new ArrayList<>();
-    static ArrayList<Kisi> ogrenciList = new ArrayList<>();
-
-    static Scanner input = new Scanner(System.in);
 
     static String kisiTuru ;
 
@@ -18,7 +16,7 @@ public class Islemler {
                 "\nÖĞRENCİ VE ÖĞRETMEN YÖNETİM PANELİ" +
                 "\n\"====================================\"");
         System.out.println("1- ÖĞRENCİ İŞLEMLERİ" + "\n2- ÖĞRETMEN İŞLEMLERİ" + "\nQ- ÇIKIŞ");
-        char anaMenuTercih = input.next().toUpperCase().charAt(0);
+        char anaMenuTercih = new Scanner(System.in).next().toUpperCase().charAt(0);
         switch (anaMenuTercih) {
             case '1':
                 kisiTuru = "ÖĞRENCİ";
@@ -44,11 +42,11 @@ public class Islemler {
                 "ARAMA işlemleri için 2\nLİSTELEME işlemleri için 3\nSİLME işlemleri için 4\nANA MENÜ'ye dönmek için 5\n" +
                 "ÇIKIŞ için Q seçiniz = ");
 
-        char islemlerMenuSecim = input.next().charAt(0);
+        char islemlerMenuSecim = new Scanner(System.in).next().charAt(0);
 
         switch (islemlerMenuSecim) {
             case '1':
-                //  ekleme();
+                ekleme();
                 islemlerMenu();
                 break;
             case '2':
@@ -76,4 +74,5 @@ public class Islemler {
         }
 
     }
+
 }

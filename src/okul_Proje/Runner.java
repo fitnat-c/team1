@@ -5,5 +5,7 @@ public class Runner {
         Islemler islem=new Islemler();
         islem.anaMenu();
         islem.islemlerMenu();
+
+
     }
 }
