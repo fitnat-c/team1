@@ -1,6 +1,7 @@
 package okul_Proje;
-
+//
 public class Kisi {
+
   private String adSoyad;
   private String kimlikNo;
   private int yas;
