@@ -3,7 +3,7 @@ package Task20;
 public class T02_ElektrikHesabi {
 
     int toplamTuketim;
-    double oran=(0.7);
+    double oran = 0.7;
     double fatura;
 
    int tuketimEkle(int tuketilenEnerji){
