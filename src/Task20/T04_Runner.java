@@ -10,12 +10,10 @@ public class T04_Runner {
      yukarıdaki methodları seçtirilen islemYap methodu ile T01_Runner class'da obj ile methodları çalıştırınız
     Trick -> Kullanıcıya metodlarla iligli bir menü veriniz.
      */
-
-
-
-
-
-
+    public static void main(String[] args) {
+        T04_Bisiklet bisiklet=new T04_Bisiklet();
+        bisiklet.islemYap();
+    }
 
 
 }

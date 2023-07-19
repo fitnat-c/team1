@@ -28,6 +28,7 @@ public class T03_Runner {
         while (true) {
             System.out.println("ders giriniz:");
             int ders = input.nextInt();
+
             int toplamKredi = ogrenci.toplamKredi();
             toplamKredi += T03_Lesson.listDersler.get(ders - 1).credit;
             if (toplamKredi <= ogrenci.maxCredit) {
