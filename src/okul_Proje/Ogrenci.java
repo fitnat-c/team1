@@ -35,7 +35,7 @@ public class Ogrenci extends Kisi{
     public String toString() {
 
         return super.toString()+
-                "ogrenciNo='" + ogrenciNo + '\'' +
-                ", sinif='" + sinif + '\'' ;
+                " ,\t ogrenciNo='" + ogrenciNo + '\'' +
+                ", \t sinif='" + sinif + '\'' ;
     }
 }
