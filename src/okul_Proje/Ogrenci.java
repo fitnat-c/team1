@@ -33,9 +33,9 @@ public class Ogrenci extends Kisi{
 
     @Override
     public String toString() {
-        return "Ogrenci{" +
-                "ogrenciNo='" + ogrenciNo + '\'' +
-                ", sinif='" + sinif + '\'' +
-                '}';
+
+        return super.toString()+
+                " ,\t ogrenciNo='" + ogrenciNo + '\'' +
+                ", \t sinif='" + sinif + '\'' ;
     }
 }
