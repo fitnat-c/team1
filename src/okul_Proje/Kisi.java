@@ -42,10 +42,8 @@ public class Kisi {
 
     @Override
     public String toString() {
-        return "Kisi{" +
-                "adSoyad='" + adSoyad + '\'' +
+        return  "adSoyad='" + adSoyad + '\'' +
                 ", kimlikNo='" + kimlikNo + '\'' +
-                ", yas=" + yas +
-                '}';
+                ", yas=" + yas;
     }
 }

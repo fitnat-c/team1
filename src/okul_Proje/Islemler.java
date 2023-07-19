@@ -8,7 +8,7 @@ import static okul_Proje.IslemMethodlari.*;
 public class Islemler {
 
 
-    static String kisiTuru ;
+    static String kisiTuru;
 
 
     void anaMenu() {
@@ -27,7 +27,7 @@ public class Islemler {
                 islemlerMenu();
                 break;
             case 'Q':
-                //cikis();
+                cikis();
                 break;
             default:
                 System.out.println("Yanlış giriş yaptınız! Tekrar panele yönlendiriliyorsunuz.");
@@ -50,15 +50,15 @@ public class Islemler {
                 islemlerMenu();
                 break;
             case '2':
-                //  arama();
+                arama();
                 islemlerMenu();
                 break;
             case '3':
-                // listele();
+                listele();
                 islemlerMenu();
                 break;
             case '4':
-                // silme();
+                silme();
                 islemlerMenu();
                 break;
             case '5':
@@ -66,7 +66,8 @@ public class Islemler {
                 break;
             case 'q':
             case 'Q':
-                //cikis();
+                cikis();
+                break;
             default:
                 System.out.println("Yanlış bir seçim yaptınız, Lütfen tekrar deneyiniz...");
                 islemlerMenu();
