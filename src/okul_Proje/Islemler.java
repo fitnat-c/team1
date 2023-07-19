@@ -8,7 +8,7 @@ import static okul_Proje.IslemMethodlari.*;
 public class Islemler {
 
 
-    static String kisiTuru ;
+    static String kisiTuru;
 
 
     void anaMenu() {
@@ -16,7 +16,7 @@ public class Islemler {
                 "\nÖĞRENCİ VE ÖĞRETMEN YÖNETİM PANELİ" +
                 "\n\"====================================\"");
         System.out.println("1- ÖĞRENCİ İŞLEMLERİ" + "\n2- ÖĞRETMEN İŞLEMLERİ" + "\nQ- ÇIKIŞ");
-        char anaMenuTercih = new Scanner(System.in).next().toUpperCase().charAt(0);
+        char anaMenuTercih = new Scanner(System.in).nextLine().toUpperCase().charAt(0);
         switch (anaMenuTercih) {
             case '1':
                 kisiTuru = "ÖĞRENCİ";
@@ -27,7 +27,7 @@ public class Islemler {
                 islemlerMenu();
                 break;
             case 'Q':
-                //cikis();
+                cikis();
                 break;
             default:
                 System.out.println("Yanlış giriş yaptınız! Tekrar panele yönlendiriliyorsunuz.");
@@ -42,7 +42,7 @@ public class Islemler {
                 "ARAMA işlemleri için 2\nLİSTELEME işlemleri için 3\nSİLME işlemleri için 4\nANA MENÜ'ye dönmek için 5\n" +
                 "ÇIKIŞ için Q seçiniz = ");
 
-        char islemlerMenuSecim = new Scanner(System.in).next().charAt(0);
+        char islemlerMenuSecim = new Scanner(System.in).nextLine().charAt(0);
 
         switch (islemlerMenuSecim) {
             case '1':
@@ -50,15 +50,15 @@ public class Islemler {
                 islemlerMenu();
                 break;
             case '2':
-                //  arama();
+                arama();
                 islemlerMenu();
                 break;
             case '3':
-                // listele();
+                listele();
                 islemlerMenu();
                 break;
             case '4':
-                // silme();
+                silme();
                 islemlerMenu();
                 break;
             case '5':
@@ -66,7 +66,8 @@ public class Islemler {
                 break;
             case 'q':
             case 'Q':
-                //cikis();
+                cikis();
+                break;
             default:
                 System.out.println("Yanlış bir seçim yaptınız, Lütfen tekrar deneyiniz...");
                 islemlerMenu();
