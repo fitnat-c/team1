@@ -17,8 +17,8 @@ public class IslemMethodlari {
         System.out.println("***Ekleme Sayfası***");
 
         System.out.println(kisiTuru + " nin ismini giriniz:");
-        input.nextLine();
         String adSoyad = input.nextLine();
+
 
         System.out.println(kisiTuru + " nin kimlik no giriniz:");
         String kimlikNo = input.next();
@@ -32,10 +32,10 @@ public class IslemMethodlari {
             System.out.println(kisiTuru + " nin öğrenci numarasını giriniz: ");
             String ogrenciNo = input.next();
 
-            input.nextLine();// dummy: next() ardından input.nextLine() dummy ile önceki satırdaki newline(enter) karakteri temizlenmiştir.
-            System.out.println(kisiTuru + " nin sınıfını giriniz: ");
 
-            String sinif = input.nextLine();
+            System.out.println(kisiTuru + " nin sınıfını giriniz: ");
+            String sinif = input.next();
+            input.nextLine();// dummy: next() ardından input.nextLine() dummy ile önceki satırdaki newline(enter) karakteri temizlenmiştir.
 
 
             Ogrenci ogrenci = new Ogrenci(adSoyad, kimlikNo, yas, ogrenciNo, sinif);
@@ -51,7 +51,7 @@ public class IslemMethodlari {
 
             System.out.println(kisiTuru + " nin bölümünü giriniz: ");
             String bolum = input.next();
-
+            input.nextLine();// dummy: next() ardından input.nextLine() dummy ile önceki satırdaki newline(enter) karakteri temizlenmiştir.
 
             Ogretmen ogretmen = new Ogretmen(adSoyad, kimlikNo, yas, bolum, sicilNo);
             ogretmenList.add(ogretmen);
@@ -65,13 +65,9 @@ public class IslemMethodlari {
     static void arama() {
         System.out.println("***Arama Sayfası***");
 
-        //if (ogrenciList.isEmpty()) {
-        //    System.out.println("Öğrenci List boş");
-        //} else if (ogretmenList.isEmpty()) {
-        //    System.out.println("Öğrenci List boş");
-        //} else {
         System.out.println("Aradığınız " + kisiTuru + " nin kimlik no giriniz:");
         String arananKimlikNo = input.next();
+        input.nextLine();// dummy: next() ardından input.nextLine() dummy ile önceki satırdaki newline(enter) karakteri temizlenmiştir.
         boolean flag = false;
         int index = 0;
 
@@ -113,6 +109,7 @@ public class IslemMethodlari {
             } else {
                 System.out.println("Aradığınız " + kisiTuru + " nin kimlik no giriniz:");
                 String arananKimlikNo = input.next();
+                input.nextLine();// dummy: next() ardından input.nextLine() dummy ile önceki satırdaki newline(enter) karakteri temizlenmiştir.
 
                 for (Kisi w : ogrenciList) {
                     if (arananKimlikNo.equals(w.getKimlikNo())) {
@@ -129,7 +126,7 @@ public class IslemMethodlari {
             } else {
                 System.out.println("Aradığınız " + kisiTuru + " nin kimlik no giriniz:");
                 String arananKimlikNo = input.next();
-
+                input.nextLine();// dummy: next() ardından input.nextLine() dummy ile önceki satırdaki newline(enter) karakteri temizlenmiştir.
                 for (Kisi w : ogretmenList) {
                     if (arananKimlikNo.equals(w.getKimlikNo())) {
                         System.out.println("Aranan öğretmen: " + arananKimlikNo + " kimlik numarasıyla silinmiştir.");
@@ -152,9 +149,9 @@ public class IslemMethodlari {
                     System.out.println(w);
                 }
             }else
-                System.out.println("Henüz öğrenci bulunmamaktadır.");
+                System.out.println("Sistemde öğrenci bulunmamaktadır.");
 
-        }else if (kisiTuru.equals("ÖĞRETMEN") ) {
+        }else if (kisiTuru.equals("ÖĞRETMEN")) {
             if (!ogretmenList.isEmpty()) {
                 System.out.println("ogrenciList = " + ogretmenList);
             }else
