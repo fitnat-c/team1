@@ -12,7 +12,7 @@ public class Ogrenci extends Kisi{
     public Ogrenci(String adSoyad, String kimlikNo, int yas, String ogrenciNo, String sinif) {
         super(adSoyad, kimlikNo, yas);
         this.ogrenciNo = ogrenciNo;
-        this.sinif = sinif;
+        setSinif(sinif);
     }
 
     public String getOgrenciNo() {
@@ -28,8 +28,10 @@ public class Ogrenci extends Kisi{
     }
 
     public void setSinif(String sinif) {
-        this.sinif = sinif;
+
+       this.sinif = sinif.toUpperCase();
     }
+
 
     @Override
     public String toString() {

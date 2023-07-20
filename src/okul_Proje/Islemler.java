@@ -42,7 +42,7 @@ public class Islemler {
                 "ARAMA işlemleri için 2\nLİSTELEME işlemleri için 3\nSİLME işlemleri için 4\nANA MENÜ'ye dönmek için 5\n" +
                 "ÇIKIŞ için Q seçiniz = ");
 
-        char islemlerMenuSecim = new Scanner(System.in).nextLine().charAt(0);
+        char islemlerMenuSecim = new Scanner(System.in).next().charAt(0);
 
         switch (islemlerMenuSecim) {
             case '1':
