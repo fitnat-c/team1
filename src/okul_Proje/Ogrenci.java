@@ -32,6 +32,7 @@ public class Ogrenci extends Kisi{
        this.sinif = sinif.toUpperCase();
     }
 
+
     @Override
     public String toString() {
 
