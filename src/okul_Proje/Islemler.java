@@ -6,7 +6,7 @@ import java.util.Scanner;
 import static okul_Proje.IslemMethodlari.*;
 
 public class Islemler {
-
+//
 
     static String kisiTuru;
 
