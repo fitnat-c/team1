@@ -20,7 +20,11 @@ public class Ogrenci extends Kisi{
     }
 
     public void setOgrenciNo(String ogrenciNo) {
-        this.ogrenciNo = ogrenciNo;
+        if (ogrenciNo.matches("\\d+")&&ogrenciNo.length()==3) {
+            this.ogrenciNo = ogrenciNo;
+        }else
+            System.out.println("Öğrenci no hatalı giriş:");
+
     }
 
     public String getSinif() {
@@ -29,9 +33,13 @@ public class Ogrenci extends Kisi{
 
     public void setSinif(String sinif) {
 
-       this.sinif = sinif.toUpperCase();
+       char ch = 0;
+            if (sinif.length() == 1 && Character.isUpperCase(sinif.charAt(0))) {
+                ch = sinif.charAt(0);
+                this.sinif = sinif;
+                System.out.println("Girilen sınıf: " + ch);
+            } else System.out.println("Sınıf için hatali giriş yaptınız, Lütfen Büyük harf kullanın!");
     }
-
 
     @Override
     public String toString() {
