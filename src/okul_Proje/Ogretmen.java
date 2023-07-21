@@ -21,7 +21,10 @@ public class Ogretmen extends Kisi {
     }
 
     public void setBolum(String bolum) {
-        this.bolum = bolum;
+        if (bolum.matches("[a-zA-Z\\s]+")){
+            this.bolum = bolum.toUpperCase();
+        }else
+            System.out.println("Bölüm hatalı giriş");
     }
 
     public String getSicilNo() {
@@ -29,7 +32,10 @@ public class Ogretmen extends Kisi {
     }
 
     public void setSicilNo(String sicilNo) {
-        this.sicilNo = sicilNo;
+        if (sicilNo.matches("\\d+")&&sicilNo.length()==5) {
+            this.sicilNo = sicilNo;
+        }else
+            System.out.println("Sicil no hatalı giriş:");
     }
 
     @Override
