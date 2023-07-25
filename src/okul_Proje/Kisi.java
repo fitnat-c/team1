@@ -1,5 +1,10 @@
 package okul_Proje;
 
+import java.util.ArrayList;
+
+import static okul_Proje.IslemMethodlari.input;
+import static okul_Proje.Islemler.kisiTuru;
+
 //
 public class Kisi {
 
@@ -7,15 +12,18 @@ public class Kisi {
     private String kimlikNo;
     private int yas;
 
+
+
     public Kisi() {
 
     }
 
     public Kisi(String adSoyad, String kimlikNo, int yas) {
-        setAdSoyad(adSoyad);
-        setKimlikNo(kimlikNo);
-        setYas(yas);
+        this.adSoyad = adSoyad;
+        this.kimlikNo = kimlikNo;
+        this.yas = yas;
     }
+
 
     public String getAdSoyad() {
         return adSoyad;
@@ -23,23 +31,16 @@ public class Kisi {
 
     public void setAdSoyad(String adSoyad) {
 
-        if (adSoyad.matches("[a-zA-Z\\s]+")){
-            this.adSoyad = adSoyad.toUpperCase();
-        }else
-            System.out.println("isim hatalı giriş");
-
+        this.adSoyad = adSoyad.toUpperCase();
     }
+
 
     public String getKimlikNo() {
         return kimlikNo;
     }
 
     public void setKimlikNo(String kimlikNo) {
-
-        if (kimlikNo.matches("\\d+")&&kimlikNo.length()==11) {
-            this.kimlikNo = kimlikNo;
-        }else
-            System.out.println("Kimlik no hatalı giriş:");
+        this.kimlikNo = kimlikNo;
     }
 
     public int getYas() {
@@ -47,13 +48,11 @@ public class Kisi {
     }
 
     public void setYas(int yas) {
-
-        if (7<=yas&& yas<=18) {
-            this.yas = yas;
-        }else
-            System.out.println("yas hatalı giris");
-
+        this.yas = yas;
     }
+
+
+
 
     @Override
     public String toString() {
