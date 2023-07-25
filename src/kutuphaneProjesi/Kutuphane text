@@ -2,7 +2,8 @@ Tabii ki! Java'da bildiklerinize uygun bir OOP projesi önerisiyle size yardımc
 
 1. Sınıf Tasarımı:
    - Kitap (Book) Sınıfı:
-     - Özellikler: kitapAdi, yazar, yayinevi, isbn (Bir kitabın benzersiz kimliğini temsil eden sayısal değer), yayinTarihi, kitapTuru (roman, bilim kurgu, tarih vb. gibi).
+     - Özellikler: kitapAdi, yazar, yayinevi, isbn (Bir kitabın benzersiz kimliğini temsil eden sayısal değer),
+      yayinTarihi, kitapTuru (roman, bilim kurgu, tarih vb. gibi).
      - Metotlar: Getter ve Setter metotları ile kitap özelliklerine erişim sağlayın.
 
    - Kütüphane (Library) Sınıfı:
