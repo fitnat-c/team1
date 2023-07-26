@@ -3,8 +3,12 @@ package kutuphaneProjesi;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static kutuphaneProjesi.Main.anaProgram;
+
 public class Runner {
     public static void main(String[] args) {
+
+        anaProgram();
         ArrayList<String> kitapAdi=new ArrayList<>(Arrays.asList("Kukla","Devrim","Zübük"));
         ArrayList<String>yazar=new ArrayList<>(Arrays.asList("Ahmet Ümit","Deniz Tokay","Aziz Nesin"));
         ArrayList<String>yayinEvi=new ArrayList<>(Arrays.asList("Kelebek","Can","Okyanus"));

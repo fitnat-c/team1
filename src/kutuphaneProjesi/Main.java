@@ -1,11 +1,15 @@
 package kutuphaneProjesi;
 
 import javax.naming.InvalidNameException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     static Scanner input = new Scanner(System.in);
+
+    static  ArrayList<Ogrenci> uyeList = new ArrayList<>();
+    static  Ogrenci ogrenci = new Ogrenci();
 
 
     static void anaProgram(){
@@ -53,19 +57,24 @@ public class Main {
     }
 
     private static void ogrenciKaydi() {
-        String name= null;
+        String ogrenciAd= null;
         while (true) {
             try {
                 System.out.print("Kaydı yapılacak öğrencinin adını giriniz: ");
-                name = input.nextLine();
-                if (!name.matches("[A-Za-z\\s]+")) throw new InvalidNameException();
+                ogrenciAd = input.nextLine();
+                if (!ogrenciAd.matches("[A-Za-z\\s]+")) throw new InvalidNameException();
                 else break;
             } catch (InvalidNameException e) {
                 System.out.println("İsim sadece harflerden olmalı.");
             }
         }
 
-        int ogrenciNo;//atanan bir numara kullanılabilir.
+        System.out.println("Öğrencinin numarasını giriniz : ");
+
+        int ogrenciNo= input.nextInt();
+
+        uyeList.add(new Ogrenci(ogrenci.getOgrenciAd(), ogrenci.getOgrenciNo()));
+        System.out.println("Öğrenci Kütüphaneye başarıyla kaydedildi :)");
 
     }
 
