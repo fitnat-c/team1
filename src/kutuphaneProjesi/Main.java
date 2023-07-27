@@ -16,31 +16,31 @@ public class Main {
 
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+"\nKÜTÜPHANEMİZE HOŞ GELDİNİZ"+
                 "\n"+ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Lütfen yapmak istediğiniz işlemi seçiniz = "+"\n1-Kitap ekleme \n2-Kitap silme "+
-                "\n3-Kitap listeleme \n4-Kitap arama \n5-Öğrenci Kaydı oluşturma \n0-Çıkış");
+        System.out.println("Lütfen yapmak istediğiniz işlemi seçiniz = "+"\n1-Öğrenci Kaydı oluşturma \n2-Kitap ekleme "+
+                "\n3-Kitap silme \n4-Kitap listeleme \n5-Kitap arama \n0-Çıkış");
 
         int secim = input.nextInt();
 
         switch (secim) {
 
             case 1:
-                kitapEkleme();
+                ogrenciKaydi();
                 anaProgram();
                 break;
             case 2:
-                kitapSilme();
+                kitapEkleme();
                 anaProgram();
                 break;
             case 3:
-                kitapListeleme();
+                kitapSilme();
                 anaProgram();
                 break;
             case 4:
-                kitapArama();
+                kitapListeleme();
                 anaProgram();
                 break;
             case 5:
-                ogrenciKaydi();
+                kitapArama();
                 anaProgram();
                 break;
             case 0:
@@ -49,7 +49,6 @@ public class Main {
         }
 
     }
-
 
     private static void cikis() {
 
@@ -79,6 +78,10 @@ public class Main {
     }
 
     private static void kitapArama() {
+
+        System.out.println("Aradığınız kitabın türünü ve kitap numarasını giriniz");
+
+        String kitapTuru= input.nextLine();
 
         //kitap türü ve kitap numarası ile arama yapılacak
 
