@@ -13,7 +13,19 @@ public class Kitap {
     public Kitap() {
     }
 
-    public Kitap(String kitapAdi, String yazar, String yayinevi, String yayinTarihi,String isbn, String kitapTuru) {
+    @Override
+    public String toString() {
+        return "Kitap{" +
+                "kitapAdi='" + kitapAdi + '\'' +
+                ", yazar='" + yazar + '\'' +
+                ", yayinevi='" + yayinevi + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", yayinTarihi='" + yayinTarihi + '\'' +
+                ", kitapTuru='" + kitapTuru + '\'' +
+                '}';
+    }
+
+    public Kitap(String kitapAdi, String yazar, String yayinevi, String yayinTarihi, String isbn, String kitapTuru) {
         this.kitapAdi = kitapAdi;
         this.yazar = yazar;
         this.yayinevi = yayinevi;
