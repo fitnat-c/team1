@@ -9,6 +9,7 @@ public class Ogrenci extends Kitap {
 
     static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>();
 
+
     public Ogrenci() {
     }
 
