@@ -9,13 +9,20 @@ public class Ogrenci extends Kitap {
 
     static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>();
 
-
     public Ogrenci() {
+
     }
 
     public Ogrenci(String ogrenciAd, int ogrenciNo) {
+        super();
         this.ogrenciAd = ogrenciAd;
         this.ogrenciNo = ogrenciNo;
+    }
+
+    public Ogrenci(String ogrenciAd, int ogrenciNo, ArrayList<Kitap> oduncKitaplarList) {
+        this.ogrenciAd = ogrenciAd;
+        this.ogrenciNo = ogrenciNo;
+        this.oduncKitaplarList=oduncKitaplarList;
     }
 
     public String getOgrenciAd() {
@@ -36,9 +43,10 @@ public class Ogrenci extends Kitap {
 
     @Override
     public String toString() {
-        return "Ogrenci{" +
-                "ogrAd='" + ogrenciAd + '\'' +
-                ", ogrNo=" + ogrenciNo +
-                '}';
+
+        return super.toString()+"Ogrenci{" +
+                "ogrenciAd='" + ogrenciAd + '\'' +
+                ", ogrenciNo=" + ogrenciNo +
+                "} " +oduncKitaplarList;
     }
 }
