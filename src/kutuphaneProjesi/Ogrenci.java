@@ -1,9 +1,14 @@
 package kutuphaneProjesi;
 
-public class Ogrenci {
+import java.util.ArrayList;
+
+public class Ogrenci extends Kitap {
 
     private String ogrenciAd;
     private int ogrenciNo;
+
+    static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>();
+
 
     public Ogrenci() {
     }

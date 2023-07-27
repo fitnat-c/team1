@@ -6,20 +6,18 @@ public class Kitap {
     private String kitapAdi;
     private String yazar;
     private String yayinevi;
-    private int isbn;
-    private int tempIsbn=1000;// sadece rakamlardan oluşmalı
-    private LocalDate yayinTarihi;
+    private String isbn;
+    private String yayinTarihi;
     private String kitapTuru;//(roman, bilim kurgu, tarih vb. gibi).
 
     public Kitap() {
     }
 
-    public Kitap(String kitapAdi, String yazar, String yayinevi, LocalDate yayinTarihi, String kitapTuru) {
+    public Kitap(String kitapAdi, String yazar, String yayinevi, String yayinTarihi,String isbn, String kitapTuru) {
         this.kitapAdi = kitapAdi;
         this.yazar = yazar;
         this.yayinevi = yayinevi;
-        tempIsbn++;
-        this.isbn = tempIsbn;
+        this.isbn = isbn;
         this.yayinTarihi = yayinTarihi;
         this.kitapTuru = kitapTuru;
     }
@@ -48,27 +46,23 @@ public class Kitap {
         this.yayinevi = yayinevi;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
-    public int getTempIsbn() {
-        return tempIsbn;
-    }
 
-    public void setTempIsbn(int tempIsbn) {
-        this.tempIsbn = tempIsbn;
-    }
 
-    public LocalDate getYayinTarihi() {
+
+
+    public String getYayinTarihi() {
         return yayinTarihi;
     }
 
-    public void setYayinTarihi(LocalDate yayinTarihi) {
+    public void setYayinTarihi(String yayinTarihi) {
         this.yayinTarihi = yayinTarihi;
     }
 
