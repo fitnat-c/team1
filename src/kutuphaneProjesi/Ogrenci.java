@@ -7,7 +7,7 @@ public class  Ogrenci extends Kitap {
     private String ogrenciAd;
     private int ogrenciNo;
 
-    static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>();
+    public static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>();
 
     public Ogrenci() {
 
