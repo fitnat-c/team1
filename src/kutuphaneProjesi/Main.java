@@ -14,6 +14,7 @@ public class Main {
 
 
     static void anaProgram() {
+        Kutuphane.mevcutKitapListesi();
 
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + "\nKÜTÜPHANEMİZE HOŞ GELDİNİZ" +
                 "\n" + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

@@ -2,6 +2,7 @@ package kutuphaneProjesi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import static kutuphaneProjesi.Main.anaProgram;
@@ -12,27 +13,16 @@ import static kutuphaneProjesi.Ogrenci.oduncKitaplarList;
 public class Kutuphane extends Kitap {
 
     static Scanner input = new Scanner(System.in);
+    static Kitap kitap1= new Kitap( "Kukla","Ahmet Ümit", "Kelebek","2010","1111","Roman");
+    static Kitap kitap2= new Kitap( "Devrim","Deniz Tokay", "Can","2020","2222","Deneme");
+    static Kitap kitap3= new Kitap( "Zübük","Aziz Nesin", "Okyanus","1976","3333","Hikaye");
+
+    static ArrayList<Kitap> mevcutKitaplar = new ArrayList<>(List.of(kitap1,kitap2,kitap3));
 
 
-   static ArrayList<String> kitapAdi = new ArrayList<>(Arrays.asList("Kukla", "Devrim", "Zübük"));
-   static ArrayList<String> IsbnList = new ArrayList<>(Arrays.asList("1111", "2222", "3333"));
-   static ArrayList<String> yazar = new ArrayList<>(Arrays.asList("Ahmet Ümit", "Deniz Tokay", "Aziz Nesin"));
-   static ArrayList<String> yayinevi = new ArrayList<>(Arrays.asList("Kelebek", "Can", "Okyanus"));
-   static ArrayList<String> yayinTarihi = new ArrayList<>(Arrays.asList("2010", "2020", "1976"));
-   static ArrayList<String> kitapTuru = new ArrayList<>(Arrays.asList("Roman", "Deneme", "Hikaye"));
-
-
-    static ArrayList<Kitap> mevcutKitaplar = new ArrayList<>();
-
-    public static void mevcutKitapListesi() {
-
-        for (int i = 0; i < 3; i++) {
-            mevcutKitaplar.add(new Kitap( kitapAdi.get(i),yazar.get(i), yayinevi.get(i), yayinTarihi.get(i),IsbnList.get(i), kitapTuru.get(i)));
-        }
-    }
 
     public static void kutuphaneMenu() {
-        mevcutKitapListesi();
+
         String tercih = "";
         do {
             System.out.println("Asagıdaki Menuden bir tercih yapınız");
@@ -92,38 +82,53 @@ public class Kutuphane extends Kitap {
         System.out.println("*********KUTUPHANE KİTAP LİSTESİ*********\n" );
         System.out.printf("%-15s %-15s %-15s %-15s %-9s %s\n" ,"KİTAP İSMİ","YAZAR","YAYINEVİ","YAYIN TARIHI","ISBN NO","TUR");
         for (int i = 0; i < mevcutKitaplar.size(); i++) {
-            System.out.printf("%-15s %-15s %-15s %-15s %-9s %s\n", kitapAdi.get(i), yazar.get(i), yayinevi.get(i), yayinTarihi.get(i),IsbnList.get(i), kitapTuru.get(i));
+            System.out.printf("%-15s %-15s %-15s %-15s %-9s %s\n", mevcutKitaplar.get(i).getKitapAdi(),
+                    mevcutKitaplar.get(i).getYazar(), mevcutKitaplar.get(i).getYayinevi(), mevcutKitaplar.get(i).getYayinTarihi(),
+                    mevcutKitaplar.get(i).getIsbn(), mevcutKitaplar.get(i).getKitapTuru());
         }
     }
 
     private static void kitapSil() {
         System.out.println("Silinecek kitabın isbn numarasını giriniz");
-        int isbn = input.nextInt();
-        IsbnList.remove(isbn);
+        String isbn = input.next();
+
+        for (Kitap kitap : mevcutKitaplar) {
+            if (kitap.getIsbn().equalsIgnoreCase(isbn)) {
+                mevcutKitaplar.remove(kitap);
+            } else
+                for (Kitap each : oduncKitaplarList) {
+                    if (each.getIsbn().equalsIgnoreCase((isbn))) {
+                        mevcutKitaplar.remove(kitap);
+                    } else
+                        System.out.println("Aranan kitap kütüphanemize kayıtlı değildir.");
+                }
+        }
+
+
+
+
     }
 
     private static void kitapEkle() {
         System.out.println("Kitabın ismini giriniz");
-        String isim = input.nextLine();
-        kitapAdi.add(isim);
+        String kitapAdi = input.nextLine();
+
         System.out.println("Kitabın yazarini giriniz");
-        String yazari = input.nextLine();
-        yazar.add(yazari);
+        String yazar = input.nextLine();
+
         System.out.println("Kitabın yayinevini giriniz");
-        String yayinev = input.nextLine();
-        yayinevi.add(yayinev);
+        String yayinevi = input.nextLine();
+
         System.out.println("Kitabın yayin tarihini giriniz");
-        String yayintarihi = input.nextLine();
-        yayinTarihi.add(yayintarihi);
+        String yayinTarihi = input.nextLine();
+
         System.out.println("Kitabın isbn numarasını giriniz");
         String isbn = input.nextLine();
-        IsbnList.add(isbn);
+
         System.out.println("Kitabın turunu giriniz");
-        String tur = input.nextLine();
-        kitapTuru.add(tur);
-        mevcutKitaplar.add(new Kitap( isim,yazari, yayinev, yayintarihi,isbn,tur));
+        String kitapTuru = input.nextLine();
 
-
+        mevcutKitaplar.add(new Kitap( kitapAdi,yazar, yayinevi, yayinTarihi,isbn,kitapTuru));
 
     }
     @Override
