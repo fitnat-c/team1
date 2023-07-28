@@ -102,7 +102,7 @@ public class Kutuphane extends Kitap {
         IsbnList.remove(isbn);
     }
 
-    private static void kitapEkle() {
+    public static void kitapEkle() {
         System.out.println("Kitabın ismini giriniz");
         String isim = input.nextLine();
         kitapAdi.add(isim);
