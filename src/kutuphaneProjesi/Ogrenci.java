@@ -1,21 +1,37 @@
 package kutuphaneProjesi;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Ogrenci extends Kitap {
+public class  Ogrenci extends Kitap {
 
     private String ogrenciAd;
     private int ogrenciNo;
 
-    static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>();
+
+    static LocalDate oduncAlmaTarihi=LocalDate.now();
+
+    static LocalDate kitapİadeTarihi;
+
+    static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>(3);
+
+    public static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>();
 
 
     public Ogrenci() {
+
     }
 
     public Ogrenci(String ogrenciAd, int ogrenciNo) {
+        super();
         this.ogrenciAd = ogrenciAd;
         this.ogrenciNo = ogrenciNo;
+    }
+
+    public Ogrenci(String ogrenciAd, int ogrenciNo, ArrayList<Kitap> oduncKitaplarList) {
+        this.ogrenciAd = ogrenciAd;
+        this.ogrenciNo = ogrenciNo;
+        this.oduncKitaplarList=oduncKitaplarList;
     }
 
     public String getOgrenciAd() {
@@ -36,9 +52,10 @@ public class Ogrenci extends Kitap {
 
     @Override
     public String toString() {
-        return "Ogrenci{" +
-                "ogrAd='" + ogrenciAd + '\'' +
-                ", ogrNo=" + ogrenciNo +
-                '}';
+
+        return super.toString()+"Ogrenci{" +
+                "ogrenciAd='" + ogrenciAd + '\'' +
+                ", ogrenciNo=" + ogrenciNo +
+                "} " +oduncKitaplarList;
     }
 }
