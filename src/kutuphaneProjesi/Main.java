@@ -16,7 +16,7 @@ public class Main {
     static Ogrenci ogrenci = new Ogrenci();
 
 
-    static void anaProgram() {
+    public static void anaProgram() {
 
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + "\nKÜTÜPHANEMİZE HOŞ GELDİNİZ" +
                 "\n" + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -71,7 +71,7 @@ public class Main {
 
     }
 
-    static void cikis() {
+    public static void cikis() {
 
         System.out.println("Kütüphaneden çıkış yaptınız, yine bekleriz...");
     }
