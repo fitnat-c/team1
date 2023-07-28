@@ -118,9 +118,6 @@ public class Kutuphane extends Kitap {
         }
         
     }
-        
-
-
 
     public static void kitapEkle() {
 
