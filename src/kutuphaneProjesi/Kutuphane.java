@@ -8,6 +8,7 @@ import java.util.Scanner;
 import static kutuphaneProjesi.Main.anaProgram;
 import static kutuphaneProjesi.Main.cikis;
 
+import static kutuphaneProjesi.Ogrenci.kitapİadeTarihi;
 import static kutuphaneProjesi.Ogrenci.oduncKitaplarList;
 
 public class Kutuphane extends Kitap {
@@ -31,7 +32,7 @@ public class Kutuphane extends Kitap {
                     "1- Kitap Ekle\n" + "\t"
                     + "2- Kitap Sil\n" + "\t" + "3- Katalog Listele\n" + "\t" +
                     "4- Kitap Ara\n" + "\t" + "5- Ana Menu\n" + "\t" + "6- Cıkıs");
-            tercih = input.next();
+            tercih = input.nextLine();
             switch (tercih) {
                 case "1":
                     kitapEkle();
@@ -67,13 +68,16 @@ public class Kutuphane extends Kitap {
             if (kitap.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
                 System.out.println("Aranan Kitap: " + kitapAdi + " ismi ile kütüphanemizdedir");
                 return kitap;
-            } else
+            } else {
                 for (Kitap each : oduncKitaplarList) {
                     if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
-                        System.out.println("Odunc verilen kitap su tarihte odunc alınabilir");
+                        System.out.println("Odunc verilen kitap " + kitapİadeTarihi + " tarihinde odunc alınabilir");
+                        break;
                     } else
                         System.out.println("Aranan kitap kütüphanemize kayıtlı değildir.");
                 }
+                break;
+            }
         }
         return null;
     }
@@ -97,17 +101,21 @@ public class Kutuphane extends Kitap {
         for (Kitap kitap : mevcutKitaplar) {
             if (kitap.getIsbn().equalsIgnoreCase(isbn)) {
                 silinecekKitaplar.add(kitap);
-            } else
+            } else {
                 for (Kitap each : oduncKitaplarList) {
                     if (each.getIsbn().equalsIgnoreCase((isbn))) {
-                        silinecekKitaplar.add(kitap);
+                        System.out.println("Silmek istediğiniz kitap öğrenciye ödünç verildi. " + kitapİadeTarihi + " tarihinde kütüphaneye iade edilecek");
+                        break;
                     } else
-                        System.out.println("Aranan kitap kütüphanemize kayıtlı değildir.");
+                        System.out.println("Silmek istediğiniz kitap kütüphanemize kayıtlı değildir.");
                 }
+                break;
+            }
         }
-        mevcutKitaplar.removeAll(silinecekKitaplar);
-        System.out.println("Silmek istediğniz kitap silindi");
-
+        if (!silinecekKitaplar.isEmpty()) {
+            mevcutKitaplar.removeAll(silinecekKitaplar);
+            System.out.println("Silmek istediğniz kitap silindi");
+        }
         
     }
         
@@ -115,6 +123,7 @@ public class Kutuphane extends Kitap {
 
 
     public static void kitapEkle() {
+
         System.out.println("Kitabın ismini giriniz");
         String kitapAdi = input.nextLine();
 
