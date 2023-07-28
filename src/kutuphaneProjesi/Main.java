@@ -1,9 +1,12 @@
 package kutuphaneProjesi;
 
 import javax.naming.InvalidNameException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import static kutuphaneProjesi.Ogrenci.*;
 
 public class Main {
 
@@ -114,29 +117,52 @@ public class Main {
 
     private static void kitaplarimiListele() {
 
-        //kütüphaneye eklenen kitaplar Arraylist methodları ile yazdırılacak
-
         System.out.println(Ogrenci.oduncKitaplarList);
-        System.out.println("Kutuphane.mevcutKitaplar = " + Kutuphane.mevcutKitaplar);
     }
 
     private static void kitapIadeEt() {
 
-        //kitap türü ve kitap numarası ile kitap silinecek.(kitap silme gerekçesi
-        // de ekleyebiliriz, kayıp, kullanılmayacak durumda vs. gibi)
+        System.out.println("İade etmek istediğiniz kitabın ismini giriniz");
+        String kitapAdi =input.nextLine();
+        System.out.println(Ogrenci.oduncKitaplarList);
+        for (Kitap each : oduncKitaplarList) {
+            if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
+                System.out.println("Kitabi iade edebilirsiniz");
+                Ogrenci.oduncKitaplarList.remove(oduncKitaplarList.indexOf(each));
+                Kutuphane.mevcutKitaplar.add(each);
+            } else
+                System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
+            System.out.println("Bu kitabı kütüphanemize bağışlamak ister misiniz? \nE- Evet \nH- Hayır");
+            
+            if (input.next()=="E"){
+                Kutuphane.kitapEkle();
+                
+            } else{
+                System.out.println("Bir dahaki sefere...");
+            }
+
+        }
+
     }
     private static void kitapOduncAl() {
         System.out.println("Odunc almak istediğiniz kitap için arama yapınız");
         Kitap istenenKitap=Kutuphane.kitapAra();
-        Ogrenci.oduncKitaplarList.add(istenenKitap);
+
+       if (oduncKitaplarList.size()<3){
+
+          Ogrenci.oduncKitaplarList.add(istenenKitap);
+
+       }else {
+           System.out.println("Kütüphanemizden maximum 3 kitap ödünç alabilirsiniz...");
+       }
+        oduncAlmaTarihi= LocalDate.now();
+
+        Ogrenci.kitapİadeTarihi=oduncAlmaTarihi.plusDays(5);
+
+        System.out.println(oduncKitaplarList.size() +" tane kitap ödünç aldınız. Bu kitapları "+
+                kitapİadeTarihi + " tarihinde iade etmelisiniz.");
         Kutuphane.mevcutKitaplar.remove(istenenKitap);
         System.out.println(Ogrenci.oduncKitaplarList);
-
-        //eklenecek kitabın, türü ve adı alınmalı, kitaba yeni bir kütüphane numarası atanmalı, yazar adı,
-        // yayın tarihi ve yayınevi alınacak,
-
-
     }
-
 
 }

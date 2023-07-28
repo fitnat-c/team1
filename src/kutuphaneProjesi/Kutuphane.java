@@ -60,6 +60,7 @@ public class Kutuphane extends Kitap {
     static Kitap kitapAra() {
 
         System.out.println("Aradığınız kitabın ismini giriniz: ");
+
         String kitapAdi = input.nextLine();
 
         for (Kitap kitap : mevcutKitaplar) {
@@ -113,7 +114,7 @@ public class Kutuphane extends Kitap {
 
 
 
-    private static void kitapEkle() {
+    public static void kitapEkle() {
         System.out.println("Kitabın ismini giriniz");
         String kitapAdi = input.nextLine();
 

@@ -8,7 +8,7 @@ public class Kitap {
     private String yayinevi;
     private String isbn;
     private String yayinTarihi;
-    private String kitapTuru;//(roman, bilim kurgu, tarih vb. gibi).
+    private String kitapTuru;//(roman, bilim kurgu, tarih vb.gibi).
 
     public Kitap() {
     }

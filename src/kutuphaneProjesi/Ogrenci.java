@@ -1,5 +1,6 @@
 package kutuphaneProjesi;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class  Ogrenci extends Kitap {
@@ -7,7 +8,15 @@ public class  Ogrenci extends Kitap {
     private String ogrenciAd;
     private int ogrenciNo;
 
+
+    static LocalDate oduncAlmaTarihi=LocalDate.now();
+
+    static LocalDate kitapİadeTarihi;
+
+    static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>(3);
+
     public static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>();
+
 
     public Ogrenci() {
 
