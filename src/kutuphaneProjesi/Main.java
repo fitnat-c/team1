@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static kutuphaneProjesi.Ogrenci.oduncKitaplarList;
+
 public class Main {
 
     static Scanner input = new Scanner(System.in);
@@ -121,6 +123,21 @@ public class Main {
     }
 
     private static void kitapIadeEt() {
+
+        System.out.println("İade etmek istediğiniz kitabın ismini giriniz");
+        String kitapAdi =input.nextLine();
+        System.out.println(Ogrenci.oduncKitaplarList);
+        for (Kitap each : oduncKitaplarList) {
+            if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
+                System.out.println("Kitabi iade edebilirsiniz");
+                Ogrenci.oduncKitaplarList.remove(oduncKitaplarList.indexOf(each));
+                Kutuphane.mevcutKitaplar.add(each);
+            } else
+                System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
+        }
+
+
+
 
         //kitap türü ve kitap numarası ile kitap silinecek.(kitap silme gerekçesi
         // de ekleyebiliriz, kayıp, kullanılmayacak durumda vs. gibi)
