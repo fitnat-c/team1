@@ -69,6 +69,7 @@ public class Kutuphane extends Kitap {
     static Kitap kitapAra() {
 
         System.out.println("Aradığınız kitabın ismini giriniz: ");
+
         String kitapAdi = input.nextLine();
 
         for (Kitap kitap : mevcutKitaplar) {

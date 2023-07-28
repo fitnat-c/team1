@@ -158,6 +158,7 @@ public class Main {
         oduncAlmaTarihi= LocalDate.now();
 
         Ogrenci.kitapİadeTarihi=oduncAlmaTarihi.plusDays(5);
+
         System.out.println(oduncKitaplarList.size() +" tane kitap ödünç aldınız. Bu kitapları "+
                 kitapİadeTarihi + " tarihinde iade etmelisiniz.");
         Kutuphane.mevcutKitaplar.remove(istenenKitap);

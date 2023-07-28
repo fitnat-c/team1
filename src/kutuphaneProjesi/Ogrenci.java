@@ -9,6 +9,7 @@ public class Ogrenci extends Kitap {
     private int ogrenciNo;
 
     static LocalDate oduncAlmaTarihi=LocalDate.now();
+
     static LocalDate kitapİadeTarihi;
 
     static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>(3);
