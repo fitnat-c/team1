@@ -149,6 +149,7 @@ public class Main {
         Kitap istenenKitap=Kutuphane.kitapAra();
 
        if (oduncKitaplarList.size()<3){
+
           Ogrenci.oduncKitaplarList.add(istenenKitap);
 
        }else {
