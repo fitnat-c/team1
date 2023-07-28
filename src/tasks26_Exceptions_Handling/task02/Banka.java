@@ -1,7 +1,7 @@
 package tasks26_Exceptions_Handling.task02;
 
 public class Banka {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         // 1- bir Account sınıfı oluşturunuz, fieldları accountNumber ve balance (bakiye).
         // 2- bir consructor ekleyiniz.
         // 3- Account sınıfına deposit (ParaEkle) metodu ekleyiniz.

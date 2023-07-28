@@ -13,7 +13,7 @@ public class  Ogrenci extends Kitap {
 
     static LocalDate kitapİadeTarihi;
 
-    static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>(3);
+
 
     public static ArrayList<Kitap> oduncKitaplarList=new ArrayList<>();
 
@@ -31,7 +31,7 @@ public class  Ogrenci extends Kitap {
     public Ogrenci(String ogrenciAd, int ogrenciNo, ArrayList<Kitap> oduncKitaplarList) {
         this.ogrenciAd = ogrenciAd;
         this.ogrenciNo = ogrenciNo;
-        this.oduncKitaplarList=oduncKitaplarList;
+        Ogrenci.oduncKitaplarList =oduncKitaplarList;
     }
 
     public String getOgrenciAd() {

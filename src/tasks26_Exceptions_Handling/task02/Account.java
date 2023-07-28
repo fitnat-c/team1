@@ -13,7 +13,7 @@ public class Account {
         this.bakiye = bakiye;
     }
 
-    public void anaMenu() throws Exception {
+    public void anaMenu()  {
 
         System.out.println("***Ana Menu Hoş geldiniz***\n***İşlem seciniz***\n1-Bakiye Sorgula\n2-Para Ekle\n3-Para Cek\n4-Çıkış");
 
