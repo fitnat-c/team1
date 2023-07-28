@@ -128,6 +128,7 @@ public class Kutuphane extends Kitap {
         mevcutKitaplar.add(new Kitap(kitapAdi, yazar, yayinevi, yayinTarihi, isbn, kitapTuru));
         System.out.println("Kitap kütüphaneye başarıyla kaydedildi.");
 
+
     }
 
     @Override
