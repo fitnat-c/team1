@@ -8,6 +8,7 @@ import static kutuphaneProjesi.Ogrenci.oduncKitaplarList;
 
 public class Kutuphane extends Kitap {
 
+
     static Scanner input = new Scanner(System.in);
 
 
@@ -20,7 +21,6 @@ public class Kutuphane extends Kitap {
 
 
     static ArrayList<Kitap> mevcutKitaplar = new ArrayList<>();
-
 
 
     public static void mevcutKitapListesi() {
@@ -116,32 +116,59 @@ public class Kutuphane extends Kitap {
 
     private static void kitapSil() {
         System.out.println("Silinecek kitabın isbn numarasını giriniz");
-        int isbn = input.nextInt();
-        IsbnList.remove(isbn);
-    }
-
-    private static void kitapEkle() {
-        System.out.println("Kitabın ismini giriniz");
-        String isim = input.nextLine();
-        kitapAdi.add(isim);
-        System.out.println("Kitabın yazarini giriniz");
-        String yazari = input.nextLine();
-        yazar.add(yazari);
-        System.out.println("Kitabın yayinevini giriniz");
-        String yayinev = input.nextLine();
-        yayinevi.add(yayinev);
-        System.out.println("Kitabın yayin tarihini giriniz");
-        String yayintarihi = input.nextLine();
-        yayinTarihi.add(yayintarihi);
-        System.out.println("Kitabın isbn numarasını giriniz");
         String isbn = input.nextLine();
-        IsbnList.add(isbn);
-        System.out.println("Kitabın turunu giriniz");
-        String tur = input.nextLine();
-        kitapTuru.add(tur);
+        //  try {
+        //            String numara = "12345";
+        //            checkIfOnlyDigits(numara);
+        //
+        //            numara = "12a34";
+        //            checkIfOnlyDigits(numara);
+        //        } catch (InvalidNumberException e) {
+        //            System.out.println("Hata: " + e.getMessage());
+        //        }
+        //    }
+        //
+        //    public static void checkIfOnlyDigits(String numara) throws InvalidNumberException {
+        //        for (char c : numara.toCharArray()) {
+        //            if (!Character.isDigit(c)) {
+        //                throw new InvalidNumberException("Geçersiz numara: " + numara);
+        //            }
+        //        }
+        //        System.out.println("Numara geçerli: " + numara);
+        //    }
+        //}
+        for (Kitap each : mevcutKitaplar) {
 
-        new Kitap(isim, yazari, yayinev, yayintarihi ,isbn, tur);
+            if (each.getIsbn().equals(isbn)) {
+                IsbnList.remove(isbn);
+                System.out.println(isbn + " numaralı kitap silindi");
+            } else System.out.println("elimizde " + isbn + " numaralı kitap bulunmamaktadır");
 
-
+        }
     }
+        private static void kitapEkle () {
+            System.out.println("Kitabın ismini giriniz");
+            String isim = input.nextLine();
+            kitapAdi.add(isim);
+            System.out.println("Kitabın yazarini giriniz");
+            String yazari = input.nextLine();
+            yazar.add(yazari);
+            System.out.println("Kitabın yayinevini giriniz");
+            String yayinev = input.nextLine();
+            yayinevi.add(yayinev);
+            System.out.println("Kitabın yayin tarihini giriniz");
+            String yayintarihi = input.nextLine();
+            yayinTarihi.add(yayintarihi);
+            System.out.println("Kitabın isbn numarasını giriniz");
+            String isbn = input.nextLine();
+            IsbnList.add(isbn);
+            System.out.println("Kitabın turunu giriniz");
+            String tur = input.nextLine();
+            kitapTuru.add(tur);
+
+            new Kitap(isim, yazari, yayinev, yayintarihi, isbn, tur);
+
+
+        }
+
 }

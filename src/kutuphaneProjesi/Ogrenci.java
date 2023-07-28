@@ -2,7 +2,7 @@ package kutuphaneProjesi;
 
 import java.util.ArrayList;
 
-public class Ogrenci extends Kitap {
+public class  Ogrenci extends Kitap {
 
     private String ogrenciAd;
     private int ogrenciNo;
