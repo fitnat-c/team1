@@ -12,6 +12,7 @@ import static kutuphaneProjesi.Ogrenci.oduncKitaplarList;
 
 public class Kutuphane extends Kitap {
 
+
     static Scanner input = new Scanner(System.in);
     static Kitap kitap1 = new Kitap("Kukla", "Ahmet Ümit", "Kelebek", "2010", "1111", "Roman");
     static Kitap kitap2 = new Kitap("Devrim", "Deniz Tokay", "Can", "2020", "2222", "Deneme");
@@ -89,6 +90,7 @@ public class Kutuphane extends Kitap {
 
     private static void kitapSil() {
         System.out.println("Silinecek kitabın isbn numarasını giriniz");
+
         String isbn = input.next();
 
         for (Kitap kitap : mevcutKitaplar) {
@@ -104,7 +106,12 @@ public class Kutuphane extends Kitap {
         }
         mevcutKitaplar.removeAll(silinecekKitaplar);
         System.out.println("Silmek istediğniz kitap silindi");
+
+        
     }
+        
+
+
 
     private static void kitapEkle() {
         System.out.println("Kitabın ismini giriniz");
@@ -122,6 +129,8 @@ public class Kutuphane extends Kitap {
         System.out.println("Kitabın isbn numarasını giriniz");
         String isbn = input.nextLine();
 
+
+      
         System.out.println("Kitabın turunu giriniz");
         String kitapTuru = input.nextLine();
 
@@ -135,4 +144,5 @@ public class Kutuphane extends Kitap {
     public String toString() {
         return "Kutuphane{} " + super.toString();
     }
+
 }
