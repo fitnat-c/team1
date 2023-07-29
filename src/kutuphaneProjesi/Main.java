@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static kutuphaneProjesi.Kutuphane.mevcutKitaplarKontrol;
+import static kutuphaneProjesi.Kutuphane.oduncKitaplarListKontrol;
 import static kutuphaneProjesi.Ogrenci.*;
 
 public class Main {
@@ -64,12 +66,14 @@ public class Main {
             case 0:
                 cikis();
                 break;
+            default:
+                System.out.println("Hatalı giriş. Tekrar deneyiniz.");
+                break;
         }
 
     }
 
     public static void cikis() {
-
         System.out.println("Kütüphaneden çıkış yaptınız, yine bekleriz...");
     }
 
@@ -121,33 +125,38 @@ public class Main {
 
         System.out.println("İade etmek istediğiniz kitabın ismini giriniz");
         //input.nextLine();
-        String kitapAdi =input.next();
-        System.out.println(Ogrenci.oduncKitaplarList);
-        for (Kitap each : oduncKitaplarList) {
-            if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
-                System.out.println("Kitabi iade ettiniz");
-                Ogrenci.oduncKitaplarList.remove(oduncKitaplarList.indexOf(each));
-                Kutuphane.mevcutKitaplar.add(each);
-                break;
-            } else {
-                System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
-                System.out.println("Bu kitabı kütüphanemize bağışlamak ister misiniz? \nE- Evet \nH- Hayır");
-                if (input.next()=="E"){
-                    Kutuphane.kitapEkle();
-                } else{
-                    System.out.println("Bir dahaki sefere...");
+        String kitapAdi = input.next();
+
+        if (oduncKitaplarListKontrol(kitapAdi)) {
+            for (Kitap each : oduncKitaplarList) {
+                if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
+                    System.out.println("Kitabi iade ettiniz");
+                    Ogrenci.oduncKitaplarList.remove(oduncKitaplarList.indexOf(each));
+                    Kutuphane.mevcutKitaplar.add(each);
+                    break;
                 }
             }
-
-
-        }
-
+        } else if (!mevcutKitaplarKontrol(kitapAdi)) {
+            System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
+            System.out.println("Bu kitabı kütüphanemize bağışlamak ister misiniz? \nE- Evet \nH- Hayır");
+            if (input.next() == "E") {
+                Kutuphane.kitapEkle();
+            } else {
+                System.out.println("Bir dahaki sefere...");
+            }
+        }else
+            System.out.println(kitapAdi+" isimli kitap ödünc aldığınız kitaplar arasında değil.");
     }
+
     private static void kitapOduncAl() {
-        System.out.println("Odunc almak istediğiniz kitap için arama yapınız");
+        System.out.println("Odunc almak istediğiniz kitabın ismini giriniz:");
+        input.nextLine();//dummy
+        String kitapAdi = input.nextLine();
         Kitap istenenKitap;
-        if (Kutuphane.kitapAra()) {
-            istenenKitap=Kutuphane.odunc;
+
+        if (mevcutKitaplarKontrol(kitapAdi)) {
+            System.out.println("Aranan Kitap: " + kitapAdi + " ismi ile kütüphanemizdedir");
+            istenenKitap = Kutuphane.odunc;
             if (oduncKitaplarList.size() < 3) {
                 Ogrenci.oduncKitaplarList.add(istenenKitap);
             } else {
@@ -160,9 +169,12 @@ public class Main {
             System.out.println(oduncKitaplarList.size() + " tane kitap ödünç aldınız. Bu kitapları " +
                     kitapİadeTarihi + " tarihinde iade etmelisiniz.");
             Kutuphane.mevcutKitaplar.remove(istenenKitap);
-            System.out.println(Ogrenci.oduncKitaplarList);
-        }else
-            System.out.println("Kütüphanemizde kitap şuan mevcut değil");
+
+        } else if (oduncKitaplarListKontrol(kitapAdi)) {
+            System.out.println("Kitap başkasına ödünc verildi.  " + kitapİadeTarihi + " tarihinde odunc alınabilir");
+
+        } else
+            System.out.println("Bu kitap kütüphanemize kayıtlı değildir.");
 
     }
 
