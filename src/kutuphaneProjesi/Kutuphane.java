@@ -27,67 +27,78 @@ public class Kutuphane extends Kitap {
     public static void kutuphaneMenu() {
 
         String tercih = "";
-        do {
-            System.out.println("**********KUTUPHANEMİMİZE  HOŞGELDİNİZ**********\n" + "\t" +
-                    "1- Kitap Ekle\n" + "\t"
-                    + "2- Kitap Sil\n" + "\t" + "3- Katalog Listele\n" + "\t" +
-                    "4- Kitap Ara\n" + "\t" + "5- Ana Menu\n" + "\t" + "6- Cıkıs");
-            tercih = input.nextLine();
-            switch (tercih) {
-                case "1":
-                    kitapEkle();
-                    break;
-                case "2":
-                    kitapSil();
-                    break;
-                case "3":
-                    katalogListele();
-                    break;
-                case "4":
-                    kitapAra();
-                    break;
-                case "5":
-                    anaProgram();
-                    break;
-                case "6":
-                    cikis();
-                    break;
-                default:
-                    System.out.println("Lütfen geçerli bir giriş yapınız");
-            }
-        } while (!tercih.equals("6"));
+
+        System.out.println("**********KUTUPHANEMİMİZE  HOŞGELDİNİZ**********\n" + "\t" +
+                "1- Kitap Ekle\n" + "\t"
+                + "2- Kitap Sil\n" + "\t" + "3- Katalog Listele\n" + "\t" +
+                "4- Kitap Ara\n" + "\t" + "5- Ana Menu\n" + "\t" + "6- Cıkıs");
+        tercih = input.nextLine();
+        switch (tercih) {
+            case "1":
+                kitapEkle();
+                kutuphaneMenu();
+                break;
+            case "2":
+                kitapSil();
+                kutuphaneMenu();
+                break;
+            case "3":
+                katalogListele();
+                kutuphaneMenu();
+                break;
+            case "4":
+                kitapAra();
+                kutuphaneMenu();
+                break;
+            case "5":
+                anaProgram();
+                break;
+            case "6":
+                cikis();
+                break;
+            default:
+                System.out.println("Lütfen geçerli bir giriş yapınız");
+                kutuphaneMenu();
+                break;
+        }
     }
 
-    static boolean kitapAra() {
-
-        System.out.println("Aradığınız kitabın ismini giriniz: ");
-        String kitapAdi = input.nextLine();
+    public static boolean mevcutKitaplarKontrol(String kitapAdi) {
         boolean flag = false;
-        System.out.println("mevcutKitaplar = " + mevcutKitaplar);
-
         for (Kitap kitap : mevcutKitaplar) {
-            System.out.println("mevcut list for");
             if (kitap.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
-                System.out.println("Aranan Kitap: " + kitapAdi + " ismi ile kütüphanemizdedir");
                 odunc = kitap;
                 flag = true;
                 break;
-            } else {
-                for (Kitap each : oduncKitaplarList) {
-                    System.out.println("Ödünç listesi for loop");
-                    if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
-                        System.out.println("Kitap başkasına ödünc verildi.  " + kitapİadeTarihi + " tarihinde odunc alınabilir");
-                        //flag=true;
-                        break;
-                    } else {
-                        System.out.println("Odunclistesinde kitap bulunamadı");
-                        System.out.println("Aranan kitap kütüphanemize kayıtlı değildir.");
-                    }
-                    break;
-                }
             }
         }
-        return flag;
+        return flag;//kütüphanede(mevcutlistte) olup olmadığını return eder
+    }
+
+    public static boolean oduncKitaplarListKontrol(String kitapAdi) {
+        boolean flag2 = false;
+        for (Kitap each : oduncKitaplarList) {
+            if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
+                flag2 = true;
+                break;
+            }
+        }
+        return flag2;////odunclistte olup olmadığını return eder
+    }
+
+    static void kitapAra() {
+
+        System.out.println("Aradığınız kitabın ismini giriniz: ");
+        String kitapAdi = input.nextLine();
+
+        if (mevcutKitaplarKontrol(kitapAdi)) {
+            System.out.println("Aranan Kitap: " + kitapAdi + " ismi ile kütüphanemizdedir");
+        } else if (oduncKitaplarListKontrol(kitapAdi)) {
+            System.out.println("Kitap başkasına ödünc verildi.  " + kitapİadeTarihi + " tarihinde odunc alınabilir");
+        } else if (!oduncKitaplarListKontrol(kitapAdi)) {
+            System.out.println("Odunclistesinde kitap bulunamadı");
+        } else
+            System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
     }
 
     private static void katalogListele() {
@@ -103,7 +114,6 @@ public class Kutuphane extends Kitap {
 
     private static void kitapSil() {
         System.out.println("Silinecek kitabın isbn numarasını giriniz");
-
         String isbn = input.next();
 
         for (Kitap kitap : mevcutKitaplar) {
