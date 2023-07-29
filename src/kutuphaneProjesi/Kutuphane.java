@@ -22,7 +22,7 @@ public class Kutuphane extends Kitap {
     static List<Kitap> mevcutKitaplar = new ArrayList<>(List.of(kitap1, kitap2, kitap3));
 
     static List<Kitap> silinecekKitaplar = new ArrayList<>();
-
+    static Kitap odunc = null;
 
     public static void kutuphaneMenu() {
 
@@ -58,28 +58,36 @@ public class Kutuphane extends Kitap {
         } while (!tercih.equals("6"));
     }
 
-    static Kitap kitapAra() {
+    static boolean kitapAra() {
 
         System.out.println("Aradığınız kitabın ismini giriniz: ");
-
         String kitapAdi = input.nextLine();
+        boolean flag = false;
+        System.out.println("mevcutKitaplar = " + mevcutKitaplar);
 
         for (Kitap kitap : mevcutKitaplar) {
+            System.out.println("mevcut list for");
             if (kitap.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
                 System.out.println("Aranan Kitap: " + kitapAdi + " ismi ile kütüphanemizdedir");
-                return kitap;
+                odunc = kitap;
+                flag = true;
+                break;
             } else {
                 for (Kitap each : oduncKitaplarList) {
+                    System.out.println("Ödünç listesi for loop");
                     if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
-                        System.out.println("Odunc verilen kitap " + kitapİadeTarihi + " tarihinde odunc alınabilir");
+                        System.out.println("Kitap başkasına ödünc verildi.  " + kitapİadeTarihi + " tarihinde odunc alınabilir");
+                        //flag=true;
                         break;
-                    } else
+                    } else {
+                        System.out.println("Odunclistesinde kitap bulunamadı");
                         System.out.println("Aranan kitap kütüphanemize kayıtlı değildir.");
+                    }
+                    break;
                 }
-                break;
             }
         }
-        return null;
+        return flag;
     }
 
     private static void katalogListele() {
@@ -116,7 +124,7 @@ public class Kutuphane extends Kitap {
             mevcutKitaplar.removeAll(silinecekKitaplar);
             System.out.println("Silmek istediğniz kitap silindi");
         }
-        
+
     }
 
     public static void kitapEkle() {
@@ -137,7 +145,6 @@ public class Kutuphane extends Kitap {
         String isbn = input.nextLine();
 
 
-      
         System.out.println("Kitabın turunu giriniz");
         String kitapTuru = input.nextLine();
 

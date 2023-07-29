@@ -30,8 +30,6 @@ public class Main {
             Kutuphane.kutuphaneMenu();
         } else
             System.out.println("Hatalı giriş");
-
-
     }
 
     static void ogrenciMenu() {
@@ -122,46 +120,50 @@ public class Main {
     private static void kitapIadeEt() {
 
         System.out.println("İade etmek istediğiniz kitabın ismini giriniz");
-        String kitapAdi =input.nextLine();
+        //input.nextLine();
+        String kitapAdi =input.next();
         System.out.println(Ogrenci.oduncKitaplarList);
         for (Kitap each : oduncKitaplarList) {
             if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
-                System.out.println("Kitabi iade edebilirsiniz");
+                System.out.println("Kitabi iade ettiniz");
                 Ogrenci.oduncKitaplarList.remove(oduncKitaplarList.indexOf(each));
                 Kutuphane.mevcutKitaplar.add(each);
-            } else
+                break;
+            } else {
                 System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
-            System.out.println("Bu kitabı kütüphanemize bağışlamak ister misiniz? \nE- Evet \nH- Hayır");
-            
-            if (input.next()=="E"){
-                Kutuphane.kitapEkle();
-                
-            } else{
-                System.out.println("Bir dahaki sefere...");
+                System.out.println("Bu kitabı kütüphanemize bağışlamak ister misiniz? \nE- Evet \nH- Hayır");
+                if (input.next()=="E"){
+                    Kutuphane.kitapEkle();
+                } else{
+                    System.out.println("Bir dahaki sefere...");
+                }
             }
+
 
         }
 
     }
     private static void kitapOduncAl() {
         System.out.println("Odunc almak istediğiniz kitap için arama yapınız");
-        Kitap istenenKitap=Kutuphane.kitapAra();
+        Kitap istenenKitap;
+        if (Kutuphane.kitapAra()) {
+            istenenKitap=Kutuphane.odunc;
+            if (oduncKitaplarList.size() < 3) {
+                Ogrenci.oduncKitaplarList.add(istenenKitap);
+            } else {
+                System.out.println("Kütüphanemizden maximum 3 kitap ödünç alabilirsiniz...");
+            }
+            oduncAlmaTarihi = LocalDate.now();
 
-       if (oduncKitaplarList.size()<3){
+            Ogrenci.kitapİadeTarihi = oduncAlmaTarihi.plusDays(5);
 
-          Ogrenci.oduncKitaplarList.add(istenenKitap);
+            System.out.println(oduncKitaplarList.size() + " tane kitap ödünç aldınız. Bu kitapları " +
+                    kitapİadeTarihi + " tarihinde iade etmelisiniz.");
+            Kutuphane.mevcutKitaplar.remove(istenenKitap);
+            System.out.println(Ogrenci.oduncKitaplarList);
+        }else
+            System.out.println("Kütüphanemizde kitap şuan mevcut değil");
 
-       }else {
-           System.out.println("Kütüphanemizden maximum 3 kitap ödünç alabilirsiniz...");
-       }
-        oduncAlmaTarihi= LocalDate.now();
-
-        Ogrenci.kitapİadeTarihi=oduncAlmaTarihi.plusDays(5);
-
-        System.out.println(oduncKitaplarList.size() +" tane kitap ödünç aldınız. Bu kitapları "+
-                kitapİadeTarihi + " tarihinde iade etmelisiniz.");
-        Kutuphane.mevcutKitaplar.remove(istenenKitap);
-        System.out.println(Ogrenci.oduncKitaplarList);
     }
 
 }
