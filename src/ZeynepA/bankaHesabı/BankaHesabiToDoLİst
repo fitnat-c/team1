@@ -1,0 +1,43 @@
+ Banka Yönetim Sistemi
+1. Sınıf Tasarımı:
+   - Hesap (Account) Sınıfı:
+     - Özellikler: hesapNumarasi, hesapSahibi, bakiye.
+     - Metotlar: Getter ve Setter metotları ile hesap özelliklerine erişim sağlayın. Ayrıca, para yatırma ve çekme işlemleri için "paraYatir" ve "paraCek" metotlarını ekleyin.
+   - Banka (Bank) Sınıfı:
+     - Özellikler: hesaplar (Hesap nesnelerini saklamak için ArrayList).
+     - Metotlar:
+       - Hesap açmak için bir "hesapAc" metodu.
+       - Hesap kapatmak için bir "hesapKapat" metodu.
+       - Hesap bakiyesini sorgulamak için bir "bakiyeSorgula" metodu.
+       - Bankadaki tüm hesapları listelemek için bir "hesapListele" metodu.
+       - Bir hesabın var olup olmadığını kontrol etmek için bir "hesapVarMi" metodu.
+   - Müşteri (Customer) Sınıfı:
+     - Özellikler: musteriAdi, musteriNo.
+     - Metotlar: Getter ve Setter metotları ile müşteri özelliklerine erişim sağlayın.
+2. Kalıtım İlişkileri:
+   - Hesap sınıfı, nesnelerinin ortak özelliklerini ve hesap işlemlerini tanımlamak için kullanılır.
+   - Banka sınıfı, hesapları saklayarak ve hesap işlemlerini gerçekleştirerek bir bankanın temel işlemlerini yönetir.
+   - Müşteri sınıfı, bankada hesapları olan müşterileri temsil eder.
+3. Proje Adımları:
+   Adım 1: Hesap Sınıfı Oluşturma
+   - Hesap sınıfını oluşturun ve yukarıda bahsedilen özellikleri ekleyin.
+   - Para yatırma ve çekme işlemlerini gerçekleştirebilmek için bakiye üzerinde işlem yapacak metotları ekleyin.
+   Adım 2: Banka Sınıfı Oluşturma
+   - Banka sınıfını oluşturun ve hesapları saklamak için ArrayList olan hesaplar özelliğini ekleyin.
+   - Hesap açmak, kapatmak, bakiye sorgulamak ve hesapları listelemek gibi işlemler için gerekli metotları ekleyin.
+   Adım 3: Müşteri Sınıfı Oluşturma
+   - Müşteri sınıfını oluşturun ve müşteri adı ve müşteri numarası gibi özellikleri ekleyin.
+   Adım 4: Ana Program (Main) Oluşturma
+   - Ana programda, kullanıcıya hesap açmak, kapatmak, para yatırmak, çekmek ve hesap bakiyesini sorgulamak gibi seçenekleri sunan bir menü oluşturun.
+   - Menü seçeneklerini kullanıcı girişi ve döngülerle işleyin. Kullanıcı girişine göre ilgili sınıf ve metotları çağırarak banka işlemlerini gerçekleştirin.
+   - try-catch yapısını kullanarak hatalı girişlere karşı programın çökmesini önleyin ve kullanıcıya uygun mesajlar verin.
+Bu proje, bir banka yönetim sistemi simülasyonunu oluşturacak ve kullanıcıların banka işlemlerini gerçekleştirebileceği basit bir sistem sunacaktır. Yine bu proje, Java OOP kavramlarını güçlendirmeniz ve uygulamanız için mükemmel bir fırsat sunacaktır. Aynı şekilde, projeyi daha da geliştirerek yeni özellikler ekleyebilirsiniz. Örneğin, hesaplar arası para transferi gibi işlemleri dahil edebilir veya farklı hesap türleri (vadeli hesap, vadesiz hesap gibi) ekleyebilirsiniz. Projeyi kendinize göre genişletmek size kalmış!
+Mevduat Faizi Hesaplama:
+Hesap Sınıfı:
+Bir "mevduatFaiziHesapla" metodu ekleyin, bu metot parametre olarak bir faiz oranı ve bir süre almalıdır. Bu metot, verilen süre boyunca mevcut bakiyeye uygulanan faizle yeni bakiyeyi hesaplamalı ve güncellemelidir.
+Kredi Faizi Hesaplama:
+Hesap Sınıfı:
+Bir "krediFaiziHesapla" metodu ekleyin, bu metot parametre olarak bir kredi tutarı, bir kredi faiz oranı ve bir süre almalıdır. Bu metot, kredi tutarına ve faiz oranına göre belirtilen süre boyunca alınacak kredi faizini hesaplamalı ve kredinin toplam geri ödeme tutarını döndürmelidir.
+Banka Sınıfı:
+Banka sınıfı içerisinde, tüm hesaplara mevduat faizi uygulamak için "tumHesaplaraMevduatFaiziUygula" adında bir metot ekleyin. Bu metot, tüm hesaplara belirtilen faiz oranını ve süreyi kullanarak mevduat faizi uygulamalı ve bakiyeleri güncellemelidir.
+Örnek olarak, Mevduat Hesabı için Hesap sınıfınızda şöyle bir metot olabilir:
