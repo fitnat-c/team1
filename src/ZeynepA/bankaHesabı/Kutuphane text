@@ -1,4 +1,3 @@
- Banka Yönetim Sistemi
 1. Sınıf Tasarımı:
    - Hesap (Account) Sınıfı:
      - Özellikler: hesapNumarasi, hesapSahibi, bakiye.

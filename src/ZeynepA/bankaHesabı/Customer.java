@@ -1,11 +1,17 @@
 package ZeynepA.bankaHesabı;
 
-public class Customer extends Account{
+public class Customer {
     private String customerName;
+    private static int tempCustomerNumber = 12345;
     private int customerNumber;
 
-    public Customer(int hesapNumarasi, int bakiye) {
-        super(hesapNumarasi, bakiye);
+    public Customer() {
+    }
+
+    public Customer(String customerName) {
+        this.customerName = customerName;
+        this.customerNumber= tempCustomerNumber;
+        tempCustomerNumber++;
     }
 
     public String getCustomerName() {
@@ -20,7 +26,4 @@ public class Customer extends Account{
         return customerNumber;
     }
 
-    public void setCustomerNumber(int customerNumber) {
-        this.customerNumber = customerNumber;
-    }
 }

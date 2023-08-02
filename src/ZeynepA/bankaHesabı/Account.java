@@ -2,11 +2,20 @@ package ZeynepA.bankaHesabı;
 
 import java.time.LocalDate;
 
-public class Account {
+public class Account extends Customer{
 
-    private int hesapNumarasi;
+    private String hesapNumarasi;
 
     private int bakiye;
+
+    public Account(String customerName) {
+        super(customerName);
+    }
+
+    public Account(String hesapNumarasi, int bakiye) {
+        super();
+
+    }
 
     static void paraYatir(){
 
@@ -16,6 +25,7 @@ public class Account {
 
     }
     static double mevduatFaiziHesapla(double faizOrani, int mevduatSuresi){
+
         int guncelBakiye= 5000;
 
 
@@ -28,19 +38,32 @@ public class Account {
 
         double aylıkOdeme = krediTutari * aylıkFaizOrani / (1 - Math.pow(1 + aylıkFaizOrani, -krediSuresi));
 
-        double toplamGeriOdeme = aylıkOdeme * krediSuresi;
-
-        return toplamGeriOdeme;
+        return   aylıkOdeme * krediSuresi;
     }
 
 
-    public Account(int hesapNumarasi, int bakiye) {
-        this.hesapNumarasi = hesapNumarasi;
+    public void setHesapNumarasi (int partLength) {
 
-        this.bakiye = bakiye;
+        String dataSource = "0123456789";
+
+        String hesapNumarasi = "";
+
+        for (int i = 0; i < 4; i++) {
+
+            char[] part1 = new char[partLength];
+
+            for (int j = 0; j < partLength; j++) {
+
+                int random = (int) (Math.random() * dataSource.length());
+                part1[j] = dataSource.charAt(random);
+            }
+            hesapNumarasi += new String(part1) + " ";
+        }
+        this.hesapNumarasi= hesapNumarasi;
     }
 
-    public int getHesapNumarasi() {
+
+    public String getHesapNumarasi() {
         return hesapNumarasi;
     }
 
