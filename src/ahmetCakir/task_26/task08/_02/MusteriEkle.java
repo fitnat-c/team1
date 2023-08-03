@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static TasksSolutions.task26.task08._02.Islemler.girisPaneli1;
+import static ahmetCakir.task_26.task08._02.Islemler.girisPaneli1;
 
 
 public class MusteriEkle extends Account{
