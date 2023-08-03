@@ -22,9 +22,17 @@ public class Bank extends Account {
         String customerName= new Scanner(System.in).nextLine();
         Account cstmr1 = new Account(customerName);
         customerAccounts.add(cstmr1);
+        System.out.println("Yeni hesabınız oluşturulmuştur. iyi günlerde kullanın!");
+
     }
     static void hesapKapat(){
-       // hesap numarası ile
+        System.out.println("Lütfen silmek istediğiniz hesap numarasini giriniz: ");
+        String silinecekHesap= new Scanner(System.in).nextLine();
+        if (customerAccounts.contains(silinecekHesap)){
+
+            customerAccounts.remove(silinecekHesap);
+            System.out.println("hesabınız silinmiştir...");
+        }else System.out.println("Yanlış giriş yaptınız! Böyle bir hesap numarası sistemimizde bulunmamaktadır.");
 
     }
 
