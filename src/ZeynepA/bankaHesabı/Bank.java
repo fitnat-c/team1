@@ -1,6 +1,7 @@
 package ZeynepA.bankaHesabı;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static ZeynepA.bankaHesabı.Main.anaMenu;
 import static ZeynepA.bankaHesabı.Main.input;
@@ -9,17 +10,18 @@ public class Bank extends Account {
 
    static ArrayList<Account> customerAccounts = new ArrayList<>();
 
-    public Bank(int hesapNumarasi, String hesapSahibi, int bakiye) {
-        super(String.valueOf(hesapNumarasi), bakiye);
+    public Bank() {
+    }
+
+    public Bank(String hesapNumarasi, int bakiye) {
+        super(hesapNumarasi, bakiye);
     }
 
     static void hesapAc(){
         System.out.println("Lütfen adınızı, soy adınızı giriniz: ");
-        String customerName= input.nextLine();
-        Customer cstmr1 = new Customer(customerName);
-
-        anaMenu();
-
+        String customerName= new Scanner(System.in).nextLine();
+        Account cstmr1 = new Account(customerName);
+        customerAccounts.add(cstmr1);
     }
     static void hesapKapat(){
        // hesap numarası ile
@@ -32,15 +34,14 @@ public class Bank extends Account {
     }
     static void hesapListele(){
 
-        System.out.println("customerAccounts = " + customerAccounts);
+        System.out.println("Hesap Listesi = " + customerAccounts);
     }
 
     static void hesapVarMi(){
 
         for (Account arananHesap : customerAccounts) {
 
-            System.out.println("arananHesap.getHesapNumarasi() = " + arananHesap.getHesapNumarasi());
-
+            System.out.println("arananHesap.getHesapNumarasi() = " + arananHesap.getCustomerName());
         }
     }
 

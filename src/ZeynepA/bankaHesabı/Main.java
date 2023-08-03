@@ -7,8 +7,8 @@ public class Main extends Bank {
 
    public static Scanner input = new Scanner(System.in);
 
-    public Main(int hesapNumarasi, String hesapSahibi, int bakiye) {
-        super(hesapNumarasi, hesapSahibi, bakiye);
+    public Main(String hesapNumarasi, int bakiye) {
+        super(hesapNumarasi, bakiye);
     }
 
     public static void anaMenu() {
@@ -85,19 +85,32 @@ static void bankaIslemleri(){
     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n Buddy Bank Banka İşlemlerine Hoşgeldiniz\n"+
             "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ");
     System.out.println("Lütfen yapmak istediğiniz işlemi seçiniz: \nYeni Müşteri Kaydı 1 \nHesaplari Listeleme 2 \n"+
-            "Hesap Kontrolü 3");
+            "Hesap Kontrolü 3 \nAna Menüye 4 \nÇıkış 0");
     int bankaIslemSecim= input.nextInt();
 
-    if (bankaIslemSecim==1){
+    switch (bankaIslemSecim){
 
-        hesapAc();
-    } else if (bankaIslemSecim==2) {
-        hesapListele();
-    } else if (bankaIslemSecim==3) {
-        hesapVarMi();
-    }else
-        System.out.println("yanlış giriş yaptınız...");
-
+        case 1:
+            hesapAc();
+            bankaIslemleri();
+            break;
+        case 2:
+            hesapListele();
+            bankaIslemleri();
+            break;
+        case 3:
+            hesapVarMi();
+            bankaIslemleri();
+            break;
+        case 4:
+            anaMenu();
+            break;
+        case 0:
+            cikis();
+            break;
+        default:
+            System.out.println("yanlış giriş yaptınız...");
+            break;
     }
-
+    }
 }

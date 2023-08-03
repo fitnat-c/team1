@@ -2,7 +2,7 @@ package ahmetCakir.task_24.task02;
 
 import java.util.Scanner;
 
-import static TasksSolutions.task24.task02.RentApartments.rentPrice;
+import static ahmetCakir.task_24.task02.RentApartments.rentPrice;
 
 public class Runner {
     public static void main(String[] args) {
