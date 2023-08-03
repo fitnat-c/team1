@@ -7,13 +7,18 @@ public class Account extends Customer{
 
     private String hesapNumarasi;
 
-    private static int bakiye;
+    private  double bakiye;
+
+    private boolean vadeliMi;
+
+
 
     public Account() {
     }
 
-    public Account(String customerName) {
+    public Account(String customerName,boolean vadeliMi) {
         super(customerName);
+        this.vadeliMi=vadeliMi;
         setHesapNumarasi(4);
     }
 
@@ -27,12 +32,39 @@ public class Account extends Customer{
         super(customerName);
         setHesapNumarasi(4);
     }
-
-    static void paraYatir(){
-
+    public boolean isVadeliMi() {
+        return vadeliMi;
     }
 
-   static void paraCek(){
+    public void setVadeliMi(boolean vadeliMi) {
+        this.vadeliMi = vadeliMi;
+    }
+    public void setHesapNumarasi(String hesapNumarasi) {
+        this.hesapNumarasi = hesapNumarasi;
+    }
+    public void bakiyeSorgula() {
+
+        if (isVadeliMi()) {
+            System.out.println("Faiz oranını giriniz: ");
+            double faizOrani = input.nextDouble();
+            System.out.println("Mevduat süresini gun olarak giriniz: ");
+            int sure= input.nextInt();
+            System.out.println(mevduatFaiziHesapla(faizOrani, sure));
+
+        } else {
+            System.out.println(getBakiye());
+        }
+    }
+
+    public  void paraYatir(){
+        System.out.println("Yatırmak istediğiniz miktarı giriniz: ");
+        double yatirilanPara= input.nextDouble();
+        double bakiye=getBakiye();
+        bakiye+=yatirilanPara;
+        setBakiye(bakiye);
+    }
+
+    public void paraCek(){
 
      //  Bank banka = new Bank();
      //  System.out.print("Para Çekmek istediğiniz Hesap Numarası: ");
@@ -58,13 +90,11 @@ public class Account extends Customer{
       }
 
 
-    static double mevduatFaiziHesapla(double faizOrani, int mevduatSuresi){
+    public double mevduatFaiziHesapla(double faizOrani, int mevduatSuresi){
+        double bakiye=getBakiye();
+        bakiye+=bakiye*faizOrani*mevduatSuresi/36500;
 
-        int guncelBakiye= 5000;
-
-
-
-        return guncelBakiye;
+        return bakiye;
     }
     public static double krediFaiziHesapla(double krediTutari, double faizOrani, int krediSuresi) {
 
@@ -93,7 +123,7 @@ public class Account extends Customer{
             }
             hesapNumarasi += new String(part1) + " ";
         }
-        this.hesapNumarasi= hesapNumarasi;
+        this.hesapNumarasi= hesapNumarasi.trim();
     }
 
 
@@ -101,19 +131,21 @@ public class Account extends Customer{
         return hesapNumarasi;
     }
 
-    public int getBakiye() {
+    public double getBakiye() {
         return bakiye;
     }
 
-    public void setBakiye(int bakiye) {
+    public void setBakiye(double bakiye) {
         this.bakiye = bakiye;
     }
 
     @Override
     public String toString() {
-        return "Account{" + getCustomerName()+" "+ getCustomerNumber()+" "+
+        return "Account{" + getCustomerName()+" "+ getCustomerNumber()+" "+"VadeliMi="+isVadeliMi()+" "+
                 "hesapNumarasi=" + hesapNumarasi +
                 ", bakiye=" + bakiye +
                 '}';
     }
+
+
 }
