@@ -5,13 +5,13 @@ public class Customer {
     private static int tempCustomerNumber = 12345;
     private int customerNumber;
 
-    public Customer() {
-    }
-
     public Customer(String customerName) {
         this.customerName = customerName;
         this.customerNumber= tempCustomerNumber;
         tempCustomerNumber++;
+    }
+
+    public Customer() {
     }
 
     public String getCustomerName() {

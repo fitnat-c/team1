@@ -1,29 +1,63 @@
 package ZeynepA.bankaHesabı;
 
-import java.time.LocalDate;
+import static ZeynepA.bankaHesabı.Bank.hesapVarMi;
+import static ZeynepA.bankaHesabı.Main.input;
 
 public class Account extends Customer{
 
     private String hesapNumarasi;
 
-    private int bakiye;
+    private static int bakiye;
+
+    public Account() {
+    }
 
     public Account(String customerName) {
         super(customerName);
+        setHesapNumarasi(4);
     }
 
     public Account(String hesapNumarasi, int bakiye) {
         super();
+        setHesapNumarasi(4);
+        this.bakiye = bakiye;
+    }
 
+    public Account(String hesapNumarasi, int bakiye, String customerName) {
+        super(customerName);
+        setHesapNumarasi(4);
     }
 
     static void paraYatir(){
 
     }
 
-    static void paraCek(){
+   static void paraCek(){
 
-    }
+     //  Bank banka = new Bank();
+     //  System.out.print("Para Çekmek istediğiniz Hesap Numarası: ");
+     //  String cekilecekHesap = input.next();
+     //  if (!hesapVarMi(cekilecekHesap)) {
+     //      System.out.println("Hesap bulunamadı! Lütfen geçerli bir hesap numarası girin.");
+     //  }else {
+     //      //Account
+     //      System.out.print("Çekilecek Miktar: ");
+     //      int cekilecekMiktar =input.nextInt();
+     //      if (cekilecekMiktar>bakiye) {
+     //          if (cekilecekMiktar <= 0) {
+     //              System.out.println("Hatalı işlem! Geçerli bir miktar giriniz.");
+     //          }
+     //          if (cekilecekMiktar > bakiye) {
+     //              System.out.println("Yetersiz bakiye! İşlem iptal edildi.");
+     //          } else if (cekilecekMiktar < bakiye) {
+     //              bakiye -= cekilecekMiktar;
+     //              System.out.println("Para çekme işlemi başarılı. Güncel bakiye: " + bakiye);
+
+     //          }
+     //      }
+      }
+
+
     static double mevduatFaiziHesapla(double faizOrani, int mevduatSuresi){
 
         int guncelBakiye= 5000;
@@ -77,7 +111,7 @@ public class Account extends Customer{
 
     @Override
     public String toString() {
-        return "Account{" +
+        return "Account{" + getCustomerName()+" "+ getCustomerNumber()+" "+
                 "hesapNumarasi=" + hesapNumarasi +
                 ", bakiye=" + bakiye +
                 '}';
