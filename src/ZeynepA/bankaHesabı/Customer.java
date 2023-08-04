@@ -10,8 +10,12 @@ public class Customer {
         this.customerNumber= tempCustomerNumber;
         tempCustomerNumber++;
     }
-
+    public Customer(String customerName,int customerNumber) {
+        this.customerName = customerName;
+        this.customerNumber= customerNumber;
+    }
     public Customer() {
+
     }
 
     public String getCustomerName() {
