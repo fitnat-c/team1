@@ -66,27 +66,22 @@ public class Account extends Customer{
 
     public void paraCek(){
 
-     //  Bank banka = new Bank();
-     //  System.out.print("Para Çekmek istediğiniz Hesap Numarası: ");
-     //  String cekilecekHesap = input.next();
-     //  if (!hesapVarMi(cekilecekHesap)) {
-     //      System.out.println("Hesap bulunamadı! Lütfen geçerli bir hesap numarası girin.");
-     //  }else {
-     //      //Account
-     //      System.out.print("Çekilecek Miktar: ");
-     //      int cekilecekMiktar =input.nextInt();
-     //      if (cekilecekMiktar>bakiye) {
-     //          if (cekilecekMiktar <= 0) {
-     //              System.out.println("Hatalı işlem! Geçerli bir miktar giriniz.");
-     //          }
-     //          if (cekilecekMiktar > bakiye) {
-     //              System.out.println("Yetersiz bakiye! İşlem iptal edildi.");
-     //          } else if (cekilecekMiktar < bakiye) {
-     //              bakiye -= cekilecekMiktar;
-     //              System.out.println("Para çekme işlemi başarılı. Güncel bakiye: " + bakiye);
+        System.out.println("Çekmek isteğinizi miktarı girin: ");
+        double cekılecekPara=input.nextDouble();
+        double bakiye=getBakiye();
+        if (cekılecekPara>bakiye){
+            System.out.println("Yetersiz bakiye! İşlem iptal edildi.");
+        } else if (cekılecekPara<0) {
+            System.out.println("Hatalı işlem! Geçerli bir miktar giriniz.");
 
-     //          }
-     //      }
+        }else if (cekılecekPara<bakiye){
+            bakiye-=cekılecekPara;
+            setBakiye(bakiye);
+            System.out.println("Para çekme işlemi başarılı. Güncel bakiye: " + bakiye);
+
+        }
+
+
       }
 
 
