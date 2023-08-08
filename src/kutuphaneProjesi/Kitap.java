@@ -3,6 +3,11 @@ package kutuphaneProjesi;
 
 public class Kitap {
 
+    /*
+    * - Özellikler: kitapAdi, yazar, yayinevi, isbn (Bir kitabın benzersiz kimliğini temsil eden sayısal değer),
+      yayinTarihi, kitapTuru (roman, bilim kurgu, tarih vb. gibi).
+    * */
+
     private String kitapAdi;
     private String yazar;
     private String yayinevi;
@@ -12,8 +17,6 @@ public class Kitap {
 
     public Kitap() {
     }
-
-
 
     public Kitap(String kitapAdi, String yazar, String yayinevi, String yayinTarihi, String isbn, String kitapTuru) {
         this.kitapAdi = kitapAdi;
