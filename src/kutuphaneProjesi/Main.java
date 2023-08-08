@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static kutuphaneProjesi.Kutuphane.mevcutKitaplarKontrol;
-import static kutuphaneProjesi.Kutuphane.oduncKitaplarListKontrol;
+import static kutuphaneProjesi.Kutuphane.*;
 import static kutuphaneProjesi.Ogrenci.*;
 
 public class Main {
@@ -29,6 +28,7 @@ public class Main {
         if (anaMenuSecim == 1) {
             ogrenciMenu();
         } else if (anaMenuSecim == 2) {
+            input.nextLine();
             Kutuphane.kutuphaneMenu();
         } else
             System.out.println("Hatalı giriş");
