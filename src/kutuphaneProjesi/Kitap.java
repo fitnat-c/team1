@@ -1,8 +1,13 @@
 package kutuphaneProjesi;
 
-import java.time.LocalDate;
 
 public class Kitap {
+
+    /*
+    * - Özellikler: kitapAdi, yazar, yayinevi, isbn (Bir kitabın benzersiz kimliğini temsil eden sayısal değer),
+      yayinTarihi, kitapTuru (roman, bilim kurgu, tarih vb. gibi).
+    * */
+
     private String kitapAdi;
     private String yazar;
     private String yayinevi;
@@ -11,18 +16,6 @@ public class Kitap {
     private String kitapTuru;//(roman, bilim kurgu, tarih vb.gibi).
 
     public Kitap() {
-    }
-
-    @Override
-    public String toString() {
-        return "Kitap{" +
-                "kitapAdi='" + kitapAdi + '\'' +
-                ", yazar='" + yazar + '\'' +
-                ", yayinevi='" + yayinevi + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", yayinTarihi='" + yayinTarihi + '\'' +
-                ", kitapTuru='" + kitapTuru + '\'' +
-                '}';
     }
 
     public Kitap(String kitapAdi, String yazar, String yayinevi, String yayinTarihi, String isbn, String kitapTuru) {
@@ -67,9 +60,6 @@ public class Kitap {
     }
 
 
-
-
-
     public String getYayinTarihi() {
         return yayinTarihi;
     }
@@ -84,5 +74,17 @@ public class Kitap {
 
     public void setKitapTuru(String kitapTuru) {
         this.kitapTuru = kitapTuru;
+    }
+
+    @Override
+    public String toString() {
+        return "Kitap{" +
+                "kitapAdi='" + kitapAdi + '\'' +
+                ", yazar='" + yazar + '\'' +
+                ", yayinevi='" + yayinevi + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", yayinTarihi='" + yayinTarihi + '\'' +
+                ", kitapTuru='" + kitapTuru + '\'' +
+                '}';
     }
 }

@@ -65,7 +65,7 @@ public class Main extends Bank {
                 musteriIslemleri(account);
                 break;
             case 6:
-                hesapAc();
+                musterihesapAcma();
                 musteriIslemleri(account);
                 break;
             case 7:

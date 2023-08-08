@@ -5,13 +5,17 @@ import java.util.ArrayList;
 
 public class  Ogrenci extends Kitap {
 
+    /*
+    * Özellikler: ogrenciAdi, ogrenciNo, oduncAlmaTarihi,kitapIadeTarihi,oduncKitaplarList
+    * */
+
     private String ogrenciAd;
     private int ogrenciNo;
 
 
     static LocalDate oduncAlmaTarihi=LocalDate.now();
 
-    static LocalDate kitapİadeTarihi;
+    static LocalDate kitapIadeTarihi;
 
 
 
