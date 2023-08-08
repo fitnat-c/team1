@@ -139,7 +139,7 @@ public class Main {
         } else if (!mevcutKitaplarKontrol(kitapAdi)) {
             System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
             System.out.println("Bu kitabı kütüphanemize bağışlamak ister misiniz? \nE- Evet \nH- Hayır");
-            if (input.next() == "E") {
+            if (input.next().equalsIgnoreCase("E")) {
                 Kutuphane.kitapEkle();
             } else {
                 System.out.println("Bir dahaki sefere...");
