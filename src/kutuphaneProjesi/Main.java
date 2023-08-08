@@ -138,6 +138,7 @@ public class Main {
            
 
             if (input.next().equalsIgnoreCase("E")) {
+                input.nextLine();//dummy
                 Kutuphane.kitapEkle();
             } else {
                 System.out.println("Bir dahaki sefere...");
