@@ -134,7 +134,10 @@ public class Main {
         } else if (!mevcutKitaplarKontrol(kitapAdi)) {// İade etmek istenilen kitap kütüphanede yoksa
             System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
             System.out.println("Bu kitabı kütüphanemize bağışlamak ister misiniz? \nE- Evet \nH- Hayır");
-            if (input.next() == "E") {//Handle edilmeli düzgün çalışmıyor
+
+           
+
+            if (input.next().equalsIgnoreCase("E")) {
                 Kutuphane.kitapEkle();
             } else {
                 System.out.println("Bir dahaki sefere...");
