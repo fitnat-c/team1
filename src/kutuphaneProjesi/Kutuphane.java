@@ -1,20 +1,20 @@
 package kutuphaneProjesi;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 import static kutuphaneProjesi.Main.anaProgram;
 import static kutuphaneProjesi.Main.cikis;
 
-import static kutuphaneProjesi.Ogrenci.kitapİadeTarihi;
+import static kutuphaneProjesi.Ogrenci.kitapIadeTarihi;
 import static kutuphaneProjesi.Ogrenci.oduncKitaplarList;
 
 public class Kutuphane extends Kitap {
 
 
     static Scanner input = new Scanner(System.in);
+
     static Kitap kitap1 = new Kitap("Kukla", "Ahmet Ümit", "Kelebek", "2010", "1111", "Roman");
     static Kitap kitap2 = new Kitap("Devrim", "Deniz Tokay", "Can", "2020", "2222", "Deneme");
     static Kitap kitap3 = new Kitap("Zübük", "Aziz Nesin", "Okyanus", "1976", "3333", "Hikaye");
@@ -24,7 +24,7 @@ public class Kutuphane extends Kitap {
     static List<Kitap> silinecekKitaplar = new ArrayList<>();
     static Kitap odunc = null;
 
-    public static void kutuphaneMenu() {
+    public static void kutuphaneMenu() {//Zerrin
 
         String tercih = "";
 
@@ -35,11 +35,11 @@ public class Kutuphane extends Kitap {
         tercih = input.nextLine();
         switch (tercih) {
             case "1":
-                kitapEkle();
+                kitapEkle();//Emine
                 kutuphaneMenu();
                 break;
             case "2":
-                kitapSil();
+                kitapSil();// Mustafa
                 kutuphaneMenu();
                 break;
             case "3":
@@ -47,7 +47,7 @@ public class Kutuphane extends Kitap {
                 kutuphaneMenu();
                 break;
             case "4":
-                kitapAra();
+                kitapAra();//Derya
                 kutuphaneMenu();
                 break;
             case "5":
@@ -94,11 +94,11 @@ public class Kutuphane extends Kitap {
         if (mevcutKitaplarKontrol(kitapAdi)) {
             System.out.println("Aranan Kitap: " + kitapAdi + " ismi ile kütüphanemizdedir");
         } else if (oduncKitaplarListKontrol(kitapAdi)) {
-            System.out.println("Kitap başkasına ödünc verildi.  " + kitapİadeTarihi + " tarihinde odunc alınabilir");
+            System.out.println("Kitap başkasına ödünc verildi.  " + kitapIadeTarihi + " tarihinde odunc alınabilir");
         } else if (!oduncKitaplarListKontrol(kitapAdi)) {
             System.out.println("Odunclistesinde kitap bulunamadı");
         } else
-            System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
+            System.out.println("Bu kitap kütüphanemize kayıtlı değildir.");
     }
 
     private static void katalogListele() {
@@ -117,12 +117,12 @@ public class Kutuphane extends Kitap {
         String isbn = input.next();
 
         for (Kitap kitap : mevcutKitaplar) {
-            if (kitap.getIsbn().equalsIgnoreCase(isbn)) {
+            if (kitap.getIsbn().equals(isbn)) {
                 silinecekKitaplar.add(kitap);
             } else {
                 for (Kitap each : oduncKitaplarList) {
-                    if (each.getIsbn().equalsIgnoreCase((isbn))) {
-                        System.out.println("Silmek istediğiniz kitap öğrenciye ödünç verildi. " + kitapİadeTarihi + " tarihinde kütüphaneye iade edilecek");
+                    if (each.getIsbn().equals((isbn))) {
+                        System.out.println("Silmek istediğiniz kitap öğrenciye ödünç verildi. " + kitapIadeTarihi + " tarihinde kütüphaneye iade edilecek");
                         break;
                     } else
                         System.out.println("Silmek istediğiniz kitap kütüphanemize kayıtlı değildir.");
@@ -163,6 +163,7 @@ public class Kutuphane extends Kitap {
 
 
     }
+
 
     @Override
     public String toString() {

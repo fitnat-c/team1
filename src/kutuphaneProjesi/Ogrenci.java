@@ -11,7 +11,7 @@ public class  Ogrenci extends Kitap {
 
     static LocalDate oduncAlmaTarihi=LocalDate.now();
 
-    static LocalDate kitapİadeTarihi;
+    static LocalDate kitapIadeTarihi;
 
 
 

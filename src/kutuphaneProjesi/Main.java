@@ -18,7 +18,7 @@ public class Main {
     static Ogrenci ogrenci = new Ogrenci();
 
 
-    public static void anaProgram() {
+    public static void anaProgram() {//Zerrin
 
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + "\nKÜTÜPHANEMİZE HOŞ GELDİNİZ" +
                 "\n" + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -34,22 +34,22 @@ public class Main {
             System.out.println("Hatalı giriş");
     }
 
-    static void ogrenciMenu() {
+    static void ogrenciMenu() {//Zerrin
         System.out.println("******Ogrenci İşlemlerine Hoşgeldiniz******");
         System.out.println("Lütfen yapmak istediğiniz işlemi seçiniz = " + "\n1-Öğrenci Kaydı oluşturma \n2-kitapOduncAl " +
                 "\n3-kitapIadeEt \n4-kitaplarimiListele \n5-Kütühanede Kitap ara\n6-AnaMenu  \n0-Çıkış");
 
         switch (input.nextInt()) {
             case 1:
-                ogrenciKaydi();
+                ogrenciKaydi();// Zeynep
                 ogrenciMenu();
                 break;
             case 2:
-                kitapOduncAl();
+                kitapOduncAl();// Serap
                 ogrenciMenu();
                 break;
             case 3:
-                kitapIadeEt();
+                kitapIadeEt();// Sena
                 ogrenciMenu();
                 break;
             case 4:
@@ -164,14 +164,14 @@ public class Main {
             }
             oduncAlmaTarihi = LocalDate.now();
 
-            Ogrenci.kitapİadeTarihi = oduncAlmaTarihi.plusDays(5);
+            Ogrenci.kitapIadeTarihi = oduncAlmaTarihi.plusDays(5);
 
             System.out.println(oduncKitaplarList.size() + " tane kitap ödünç aldınız. Bu kitapları " +
-                    kitapİadeTarihi + " tarihinde iade etmelisiniz.");
+                    kitapIadeTarihi + " tarihinde iade etmelisiniz.");
             Kutuphane.mevcutKitaplar.remove(istenenKitap);
 
         } else if (oduncKitaplarListKontrol(kitapAdi)) {
-            System.out.println("Kitap başkasına ödünc verildi.  " + kitapİadeTarihi + " tarihinde odunc alınabilir");
+            System.out.println("Kitap başkasına ödünc verildi.  " + kitapIadeTarihi + " tarihinde odunc alınabilir");
 
         } else
             System.out.println("Bu kitap kütüphanemize kayıtlı değildir.");

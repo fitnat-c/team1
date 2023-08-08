@@ -7,7 +7,7 @@ Tabii ki! Java'da bildiklerinize uygun bir OOP projesi önerisiyle size yardımc
      - Metotlar: Getter ve Setter metotları ile kitap özelliklerine erişim sağlayın.
 
    - Kütüphane (Library) Sınıfı:
-     - Özellikler: katalog (Kitapları saklamak için ArrayList), katalogAdi.
+     - Özellikler: katalog (Kitapları saklamak için ArrayList).
      - Metotlar:
        - Kitap eklemek için bir "kitapEkle" metodu.
        - Kitap silmek için bir "kitapSil" metodu.
