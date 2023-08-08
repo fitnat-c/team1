@@ -2,9 +2,7 @@ package kutuphaneProjesi;
 
 import javax.naming.InvalidNameException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 import static kutuphaneProjesi.Kutuphane.*;
 import static kutuphaneProjesi.Ogrenci.*;
@@ -15,7 +13,6 @@ public class Main {
 
     static ArrayList<Ogrenci> uyeList = new ArrayList<>();
     static Ogrenci ogrenci = new Ogrenci();
-
 
     public static void anaProgram() {//Zerrin
 
@@ -70,7 +67,6 @@ public class Main {
                 System.out.println("Hatalı giriş. Tekrar deneyiniz.");
                 break;
         }
-
     }
 
     public static void cikis() {
@@ -81,10 +77,10 @@ public class Main {
         String ogrenciAd = null;
 
         while (true) {
-            try {
+            try {//Ogrencinin adı sadece harf ve boşluk içermesi kontrolu try-catch ile yapıldı
                 System.out.print("Kaydı yapılacak öğrencinin adını giriniz: ");
                 ogrenciAd = input.nextLine();
-                if (!ogrenciAd.matches("[A-Za-z\\s]+")) throw new InvalidNameException();
+                if (!ogrenciAd.matches("[A-Za-z\\s]+")) throw new InvalidNameException();//
                 else break;
             } catch (InvalidNameException e) {
                 System.out.println("İsim sadece harflerden olmalı.");
@@ -93,7 +89,7 @@ public class Main {
 
         int ogrenciNo = 0;
         while (true) {
-            try {
+            try {//Ogrencinin numarası sadece rakamlardan ve 4 haneli olması kontrolu try-catch ile yapıldı
                 System.out.println("Öğrencinin numarasını giriniz : ");
 
                 if (input.hasNextInt()) {
@@ -103,7 +99,7 @@ public class Main {
                     } else
                         break;
                 } else {
-                    input.next();
+                    input.next();//dummy
                     throw new InputMismatchException();
                 }
 
@@ -118,28 +114,27 @@ public class Main {
 
     private static void kitaplarimiListele() {
 
-        System.out.println(Ogrenci.oduncKitaplarList);
+        System.out.println(Ogrenci.oduncKitaplarList);//Odunc alınan kitapları listeler
     }
 
     private static void kitapIadeEt() {
 
         System.out.println("İade etmek istediğiniz kitabın ismini giriniz");
-        //input.nextLine();
         String kitapAdi = input.next();
 
-        if (oduncKitaplarListKontrol(kitapAdi)) {
+        if (oduncKitaplarListKontrol(kitapAdi)) {// İade etmek istenilen kitap oduncKitaplarList te varmı kontrolu
             for (Kitap each : oduncKitaplarList) {
-                if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {
+                if (each.getKitapAdi().equalsIgnoreCase(kitapAdi)) {// İade etmek istenilen kitap oduncKitaplarList te bulundu
                     System.out.println("Kitabi iade ettiniz");
-                    Ogrenci.oduncKitaplarList.remove(oduncKitaplarList.indexOf(each));
-                    Kutuphane.mevcutKitaplar.add(each);
+                    Ogrenci.oduncKitaplarList.remove(oduncKitaplarList.indexOf(each));// İade etmek istenilen kitap oduncKitaplarListten silindi
+                    Kutuphane.mevcutKitaplar.add(each);// İade etmek istenilen kitap mevcutKitap Listine eklendi
                     break;
                 }
             }
-        } else if (!mevcutKitaplarKontrol(kitapAdi)) {
+        } else if (!mevcutKitaplarKontrol(kitapAdi)) {// İade etmek istenilen kitap kütüphanede yoksa
             System.out.println("Bu kitap kitap kütüphanemize kayıtlı değildir.");
             System.out.println("Bu kitabı kütüphanemize bağışlamak ister misiniz? \nE- Evet \nH- Hayır");
-            if (input.next() == "E") {
+            if (input.next() == "E") {//Handle edilmeli düzgün çalışmıyor
                 Kutuphane.kitapEkle();
             } else {
                 System.out.println("Bir dahaki sefere...");
@@ -154,21 +149,23 @@ public class Main {
         String kitapAdi = input.nextLine();
         Kitap istenenKitap;
 
-        if (mevcutKitaplarKontrol(kitapAdi)) {
+        if (mevcutKitaplarKontrol(kitapAdi)) {//Odunc almak istenilen kitap Kütüphanede ise
             System.out.println("Aranan Kitap: " + kitapAdi + " ismi ile kütüphanemizdedir");
-            istenenKitap = Kutuphane.odunc;
-            if (oduncKitaplarList.size() < 3) {
-                Ogrenci.oduncKitaplarList.add(istenenKitap);
+            istenenKitap = Kutuphane.odunc;//Kütüphanede ki odunc kitap istenen kitaba atandı
+            if (oduncKitaplarList.size() < 3) {//Ogrenci en fazla 3 kitap ödünç alabilir
+                Ogrenci.oduncKitaplarList.add(istenenKitap);//istenenkitap ödünç alındı
+
             } else {
                 System.out.println("Kütüphanemizden maximum 3 kitap ödünç alabilirsiniz...");
             }
-            oduncAlmaTarihi = LocalDate.now();
+            oduncAlmaTarihi = LocalDate.now();//Odunc alma tarihi belirlendi
 
-            Ogrenci.kitapIadeTarihi = oduncAlmaTarihi.plusDays(5);
+            Ogrenci.kitapIadeTarihi = oduncAlmaTarihi.plusDays(5);//İade tarihi 5 gün sonra olarak atandı
 
             System.out.println(oduncKitaplarList.size() + " tane kitap ödünç aldınız. Bu kitapları " +
                     kitapIadeTarihi + " tarihinde iade etmelisiniz.");
-            Kutuphane.mevcutKitaplar.remove(istenenKitap);
+
+            Kutuphane.mevcutKitaplar.remove(istenenKitap);//odunc alınan kitap mencut listten silindi
 
         } else if (oduncKitaplarListKontrol(kitapAdi)) {
             System.out.println("Kitap başkasına ödünc verildi.  " + kitapIadeTarihi + " tarihinde odunc alınabilir");
