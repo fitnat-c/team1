@@ -1,6 +1,4 @@
 package fıtnat_sena;
 
-public class deneme {
-
-
+public class denem2 {
 }
